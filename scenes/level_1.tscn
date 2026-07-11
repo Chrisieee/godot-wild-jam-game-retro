@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b1otglxtyqqrf"]
+
+[ext_resource type="PackedScene" uid="uid://cuhwyk0a0leyk" path="res://parts/player.tscn" id="1_014kd"]
+
+[sub_resource type="Environment" id="Environment_014kd"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r6c0r"]
+size = Vector2(100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lfxu0"]
+size = Vector3(99.810776, 1, 99.12842)
+
+[node name="level1" type="Node3D" unique_id=734127826]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1605139383]
+transform = Transform3D(1, 0, 0, 0, -0.51600134, 0.85658777, 0, -0.85658777, -0.51600134, 0, 71.2511, 0)
+light_energy = 3.564
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1339717578]
+environment = SubResource("Environment_014kd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1277410842]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1076422641]
+mesh = SubResource("PlaneMesh_r6c0r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2116035872]
+transform = Transform3D(1, 0, 0, 0, 0.9999827, 0.005878221, 0, -0.005878221, 0.9999827, 0.46466827, 0, 0.4885254)
+shape = SubResource("BoxShape3D_lfxu0")
+
+[node name="player" parent="." unique_id=38209624 instance=ExtResource("1_014kd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.082684, 0)
