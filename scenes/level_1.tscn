@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b1otglxtyqqrf"]
 
 [ext_resource type="PackedScene" uid="uid://cuhwyk0a0leyk" path="res://parts/player.tscn" id="1_014kd"]
-[ext_resource type="Script" uid="uid://buyotnwu7bihr" path="res://scenes/level_1.gd" id="1_bswci"]
+[ext_resource type="Script" uid="uid://buyotnwu7bihr" path="res://scripts/level_1.gd" id="1_bswci"]
 
 [sub_resource type="Environment" id="Environment_014kd"]
 
