@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c80d5jky3bchl" path="res://scripts/camera.gd" id="2_aaff8"]
 [ext_resource type="Shader" uid="uid://b3siyml18xigd" path="res://shaders/camera.gdshader" id="3_40wer"]
 [ext_resource type="Script" uid="uid://751m2fbvsej3" path="res://scripts/color_rect.gd" id="3_nh1j4"]
+[ext_resource type="Script" uid="uid://d0yhybwl0l1ji" path="res://scripts/control.gd" id="5_c2rpj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lfxu0"]
 height = 2.3925781
@@ -23,7 +24,31 @@ shader_parameter/crack_intensity = 0.0
 shader_parameter/crack_size = 0.0
 shader_parameter/vertical_jitter = 0.002
 shader_parameter/scanline_opacity = 0.1
-shader_parameter/vignette_intensity = 0.3
+shader_parameter/vignette_intensity = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfxu0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 80
+border_width_top = 60
+border_width_right = 80
+border_width_bottom = 60
+border_color = Color(0.14044744, 0.14044747, 0.14044738, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oreqr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 30
+border_width_top = 30
+border_width_right = 30
+border_width_bottom = 30
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_lfxu0"]
+font_size = 30
+font_color = Color(0.106236644, 0.10623657, 0.10623657, 1)
 
 [node name="player" type="CharacterBody3D" unique_id=38209624]
 script = ExtResource("1_xlo1q")
@@ -57,16 +82,69 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/cameraUi" unique_id=471603984]
+visible = false
 material = SubResource("ShaderMaterial_40wer")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 65.0
-offset_top = 45.0
+offset_top = 49.0
 offset_right = -67.0
-offset_bottom = -57.0
+offset_bottom = -53.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.08235294)
 script = ExtResource("3_nh1j4")
+
+[node name="outer" type="Panel" parent="CanvasLayer/cameraUi" unique_id=1421931735]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/cameraUi/outer" unique_id=1248087139]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 50
+
+[node name="inner" type="Panel" parent="CanvasLayer/cameraUi/outer/MarginContainer" unique_id=1173674455]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oreqr")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/cameraUi/outer/MarginContainer/inner" unique_id=809404824]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 120
+
+[node name="Control" type="Control" parent="CanvasLayer/cameraUi/outer/MarginContainer/inner/MarginContainer" unique_id=615236653]
+layout_mode = 2
+script = ExtResource("5_c2rpj")
+
+[node name="photoLabel" type="Label" parent="CanvasLayer/cameraUi/outer/MarginContainer/inner" unique_id=1348479800]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 507.0
+offset_right = 119.0
+offset_bottom = 588.0
+text = "5"
+label_settings = SubResource("LabelSettings_lfxu0")
+horizontal_alignment = 1
+vertical_alignment = 1
