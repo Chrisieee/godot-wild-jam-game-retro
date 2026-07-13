@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cxdcb0m0nmrem" path="res://scripts/develop/polaroid.gd" id="1_eq7tb"]
 [ext_resource type="Script" uid="uid://qh30ippddc81" path="res://scripts/develop/developManager.gd" id="1_ptjpa"]
-[ext_resource type="Texture2D" uid="uid://bda0o6hr7rst2" path="res://icon.svg" id="3_ptjpa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eq7tb"]
 bg_color = Color(1, 1, 1, 1)
@@ -76,7 +75,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_ptjpa")
 expand_mode = 4
 stretch_mode = 5
 
@@ -95,9 +93,21 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_vqp5a")
 [node name="Label" type="Label" parent="CanvasLayer/polaroid" unique_id=23213812]
 layout_mode = 0
 offset_left = 25.0
-offset_top = 220.0
+offset_top = 200.0
 offset_right = 298.0
-offset_bottom = 265.0
+offset_bottom = 245.0
+text = "data"
+label_settings = SubResource("LabelSettings_ag2cp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="scoreLabel" type="Label" parent="CanvasLayer/polaroid" unique_id=1732826584]
+visible = false
+layout_mode = 0
+offset_left = 25.0
+offset_top = 245.0
+offset_right = 298.0
+offset_bottom = 290.0
 text = "data"
 label_settings = SubResource("LabelSettings_ag2cp")
 horizontal_alignment = 1

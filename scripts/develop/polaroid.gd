@@ -23,10 +23,15 @@ func _process(delta):
 
 	if progress == 1 && not callingNext:
 		callingNext = true
-		$"../..".next()
+		show_score()
 
 	lastMouse = mouse
 
+func show_score():
+	$scoreLabel.visible = true
+	await get_tree().create_timer(5).timeout
+	
+	$"../..".next()
 
 func next_photo(photo):
 	var tween = create_tween()
@@ -56,3 +61,8 @@ func next_photo(photo):
 	
 	var date = Time.get_datetime_dict_from_unix_time(localTime)
 	$Label.text = "%02d-%02d-%04d %02d:%02d:%02d" % [date.day, date.month, date.year, date.hour, date.minute, date.second]
+	
+	var formatString = "score: %s"
+	var string = formatString % [PhotoManager.photos[photo].score]
+	print(string)
+	$scoreLabel.text = string

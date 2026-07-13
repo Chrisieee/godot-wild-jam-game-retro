@@ -3,4 +3,6 @@ class_name PhotoObject
 
 @export var objectName: String
 @export var points: int
-@export var species: String
+
+func _ready():
+	add_to_group("photoObjects")

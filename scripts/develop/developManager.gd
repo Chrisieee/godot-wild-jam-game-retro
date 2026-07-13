@@ -14,6 +14,10 @@ func _ready():
 	label.text = "%02d-%02d-%04d %02d:%02d:%02d" % [date.day, date.month, date.year, date.hour, date.minute, date.second]
 	
 	lastPhoto = 0
+	
+	var string = "Score: %d" % [PhotoManager.photos[0].score]
+	print(string)
+	$CanvasLayer/polaroid/scoreLabel.text = string
 
 func next():
 	lastPhoto += 1

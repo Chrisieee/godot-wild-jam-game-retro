@@ -1,10 +1,11 @@
 extends Node3D
 
-@onready var label := $"../../CanvasLayer/cameraUi/outer/MarginContainer/inner/photoLabel"
-@onready var viewfinder := $"../../CanvasLayer/cameraUi"
+@onready var label = $"../../CanvasLayer/cameraUi/outer/MarginContainer/inner/photoLabel"
+@onready var viewfinder = $"../../CanvasLayer/cameraUi"
 @onready var playerCamera = $"../Camera3D"
 @onready var photoCamera = $"../SubViewport/photoCamera"
 @onready var polaroidPhoto = $"../../CanvasLayer/photoUi"
+@onready var cameraModel = $"../Camera3D/camera2"
 
 @export var photos = 5
 
@@ -22,13 +23,34 @@ func _process(_delta):
 func raise_camera():
 	viewfinder.visible = true
 	cameraUp = true
+	cameraModel.visible = false
 
 func lower_camera():
 	viewfinder.visible = false
 	cameraUp = false
+	cameraModel.visible = true
 
 func make_photo():
 	var photo := PhotoData.new()
+	
+	var camera = $"../SubViewport/photoCamera"
+	var viewportSize = camera.get_viewport().get_visible_rect().size
+	var visibleObjects = []
+
+	for object in get_tree().get_nodes_in_group("photoObjects"):
+		if camera.is_position_behind(object.global_position):
+			continue
+		
+		var screenPos = camera.unproject_position(object.global_position)
+		
+		if Rect2(Vector2.ZERO, viewportSize).has_point(screenPos):
+			visibleObjects.append(object)
+
+	var score = 0
+	for object in visibleObjects:
+		score += object.points
+	
+	photo.score = score
 	
 	photo.image = $"../SubViewport".get_texture().get_image()
 	photo.texture = ImageTexture.create_from_image(photo.image)
@@ -39,6 +61,8 @@ func make_photo():
 	
 	remainingPhotos -= 1
 	label.text = str(remainingPhotos)
+	
+	print(photo.score)
 	
 	lower_camera()
 	
