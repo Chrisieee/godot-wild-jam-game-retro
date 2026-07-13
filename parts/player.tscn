@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cuhwyk0a0leyk"]
 
 [ext_resource type="Script" uid="uid://82egjsgifs1v" path="res://scripts/player.gd" id="1_xlo1q"]
-[ext_resource type="Script" uid="uid://c80d5jky3bchl" path="res://scripts/camera.gd" id="2_aaff8"]
+[ext_resource type="Script" uid="uid://c80d5jky3bchl" path="res://scripts/camera/camera.gd" id="2_aaff8"]
 [ext_resource type="Shader" uid="uid://b3siyml18xigd" path="res://shaders/camera.gdshader" id="3_40wer"]
 [ext_resource type="Script" uid="uid://d0yhybwl0l1ji" path="res://shaders/control.gd" id="5_c2rpj"]
-[ext_resource type="Script" uid="uid://cm73y7cd02mkd" path="res://scripts/photo.gd" id="5_oreqr"]
+[ext_resource type="Script" uid="uid://cm73y7cd02mkd" path="res://scripts/camera/photo.gd" id="5_oreqr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lfxu0"]
 height = 2.3925781

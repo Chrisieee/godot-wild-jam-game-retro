@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dxshh2cg0x4ln"]
+
+[ext_resource type="ArrayMesh" uid="uid://dwub04mmcvtv4" path="res://objects/tree.obj" id="1_ggy74"]
+[ext_resource type="Material" uid="uid://edqy30bj6yt4" path="res://textures/leaves.tres" id="2_x0foc"]
+[ext_resource type="Material" uid="uid://6lfhcsfrils6" path="res://textures/trunk.tres" id="3_k1kyq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lglir"]
+size = Vector3(4.4249687, 8.428772, 4.3587646)
+
+[node name="tree" type="StaticBody3D" unique_id=1394198399]
+
+[node name="Tree" type="MeshInstance3D" parent="." unique_id=1579220133]
+mesh = ExtResource("1_ggy74")
+surface_material_override/0 = ExtResource("2_x0foc")
+surface_material_override/1 = ExtResource("2_x0foc")
+surface_material_override/2 = ExtResource("2_x0foc")
+surface_material_override/3 = ExtResource("2_x0foc")
+surface_material_override/4 = ExtResource("2_x0foc")
+surface_material_override/5 = ExtResource("3_k1kyq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1922411721]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0.0105629265, 4.2384653, 0.012390137)
+shape = SubResource("BoxShape3D_lglir")

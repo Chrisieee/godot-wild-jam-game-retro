@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://q3a2ads4fday"]
 
-[ext_resource type="Script" uid="uid://cxdcb0m0nmrem" path="res://scripts/polaroid.gd" id="1_eq7tb"]
-[ext_resource type="Script" uid="uid://qh30ippddc81" path="res://scripts/developManager.gd" id="1_ptjpa"]
+[ext_resource type="Script" uid="uid://cxdcb0m0nmrem" path="res://scripts/develop/polaroid.gd" id="1_eq7tb"]
+[ext_resource type="Script" uid="uid://qh30ippddc81" path="res://scripts/develop/developManager.gd" id="1_ptjpa"]
 [ext_resource type="Texture2D" uid="uid://bda0o6hr7rst2" path="res://icon.svg" id="3_ptjpa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eq7tb"]
