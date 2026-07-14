@@ -8,4 +8,6 @@ var score: int = 0
 var timeTaken: float
 var map
 
-var objects: Array[PhotoObject] = []
+var objects: Array[PhotoObjectResult] = []
+
+var scoreReasons := []

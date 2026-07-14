@@ -33,24 +33,21 @@ func lower_camera():
 func make_photo():
 	var photo := PhotoData.new()
 	
-	var camera = $"../SubViewport/photoCamera"
-	var viewportSize = camera.get_viewport().get_visible_rect().size
-	var visibleObjects = []
-
-	for object in get_tree().get_nodes_in_group("photoObjects"):
-		if camera.is_position_behind(object.global_position):
-			continue
-		
-		var screenPos = camera.unproject_position(object.global_position)
-		
-		if Rect2(Vector2.ZERO, viewportSize).has_point(screenPos):
-			visibleObjects.append(object)
-
-	var score = 0
-	for object in visibleObjects:
-		score += object.points
-	
-	photo.score = score
+	#var camera = $"../SubViewport/photoCamera"
+	#var viewportSize = camera.get_viewport().get_visible_rect().size
+	#var visibleObjects = []
+#
+	#for object in get_tree().get_nodes_in_group("photoObjects"):
+		#if camera.is_position_behind(object.global_position):
+			#continue
+		#
+		#var screenPos = camera.unproject_position(object.global_position)
+		#
+		#if Rect2(Vector2.ZERO, viewportSize).has_point(screenPos):
+			#visibleObjects.append(object)
+		#
+	#for object in visibleObjects:
+		#photo.objects.append(object)
 	
 	photo.image = $"../SubViewport".get_texture().get_image()
 	photo.texture = ImageTexture.create_from_image(photo.image)
@@ -61,6 +58,8 @@ func make_photo():
 	
 	remainingPhotos -= 1
 	label.text = str(remainingPhotos)
+	
+	photo.score = ScoreManager.calculate_score(photo)
 	
 	print(photo.score)
 	

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PhotoManager="*uid://8gljy0bqwixn"
 GameManager="*uid://c7bjyse7jway7"
+ScoreManager="*uid://crgv2hollqu88"
 
 [display]
 

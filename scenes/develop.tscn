@@ -1,114 +1,116 @@
 [gd_scene format=3 uid="uid://q3a2ads4fday"]
 
-[ext_resource type="Script" uid="uid://cxdcb0m0nmrem" path="res://scripts/develop/polaroid.gd" id="1_eq7tb"]
 [ext_resource type="Script" uid="uid://qh30ippddc81" path="res://scripts/develop/developManager.gd" id="1_ptjpa"]
+[ext_resource type="Script" uid="uid://dx85gkdkjf867" path="res://scripts/score/scoreView.gd" id="3_5yyuv"]
+[ext_resource type="PackedScene" uid="uid://ckjm0n2nq6wvt" path="res://parts/polaroid.tscn" id="3_ag2cp"]
+[ext_resource type="PackedScene" uid="uid://cmvweot2qii82" path="res://objects/camera.glb" id="3_ptjpa"]
+[ext_resource type="PackedScene" uid="uid://dd050pjj1yrq6" path="res://parts/scoreLabel.tscn" id="4_ag2cp"]
+[ext_resource type="FontFile" uid="uid://bkd268sfppacl" path="res://fonts/NewRocker-Regular.ttf" id="5_qne1y"]
+[ext_resource type="Script" uid="uid://dvovgynhniwo7" path="res://scripts/score/button.gd" id="6_c76t3"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eq7tb"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjb8m"]
+bg_color = Color(0.4759596, 0.35143566, 0.26927388, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptjpa"]
-bg_color = Color(1, 1, 1, 0.79607844)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfxu0"]
-bg_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqp5a"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ag2cp"]
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="Environment" id="Environment_ptjpa"]
 
 [node name="develop" type="Node2D" unique_id=30682998]
 script = ExtResource("1_ptjpa")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1949002746]
 
-[node name="polaroid" type="Panel" parent="CanvasLayer" unique_id=1122810238]
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1623039933]
+offset_left = 1.0
+offset_top = 279.0
+offset_right = 1285.0
+offset_bottom = 722.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hjb8m")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer" unique_id=388069976]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -240.0
+offset_right = 400.0
+offset_bottom = 160.0
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer" unique_id=467850731]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(500, 500)
+render_target_update_mode = 4
+
+[node name="camera" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=1162581993 instance=ExtResource("3_ptjpa")]
+
+[node name="Camera3D" type="Camera3D" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=1031312640]
+transform = Transform3D(0.60367084, -0.32620975, 0.72743994, -4.8612534e-08, 0.912455, 0.40917712, -0.7972337, -0.24700832, 0.55082244, 14.472059, 7.273002, 10.927212)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=1198973158]
+transform = Transform3D(0.7826234, -0.3212085, 0.533222, -0.6224955, -0.40383473, 0.67038566, 0, -0.85658777, -0.51600134, 90.65668, 71.2511, 0)
+light_energy = 0.932
+shadow_enabled = true
+shadow_blur = 2.711
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=776782427]
+environment = SubResource("Environment_ptjpa")
+
+[node name="scoreView" type="Panel" parent="CanvasLayer" unique_id=359580652]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -148.5
-offset_right = 160.0
-offset_bottom = 148.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_eq7tb")
-script = ExtResource("1_eq7tb")
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/polaroid" unique_id=461673452]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 110
-
-[node name="Panel" type="Panel" parent="CanvasLayer/polaroid/MarginContainer" unique_id=709949206]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ptjpa")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/polaroid/MarginContainer/Panel" unique_id=197057972]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 4
-stretch_mode = 5
-
-[node name="Overlay" type="Panel" parent="CanvasLayer/polaroid/MarginContainer" unique_id=1173428039]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
-
-[node name="Panel2" type="Panel" parent="CanvasLayer/polaroid/MarginContainer/Overlay" unique_id=1666127644]
-layout_mode = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ptjpa")
-
-[node name="Panel2" type="Panel" parent="CanvasLayer/polaroid/MarginContainer" unique_id=1187668014]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_vqp5a")
-
-[node name="Label" type="Label" parent="CanvasLayer/polaroid" unique_id=23213812]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 200.0
-offset_right = 298.0
+offset_left = -377.0
+offset_top = -184.75
+offset_right = 377.0
 offset_bottom = 245.0
-text = "data"
-label_settings = SubResource("LabelSettings_ag2cp")
-horizontal_alignment = 1
-vertical_alignment = 1
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_5yyuv")
 
-[node name="scoreLabel" type="Label" parent="CanvasLayer/polaroid" unique_id=1732826584]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/scoreView" unique_id=879241453]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/scoreView/MarginContainer" unique_id=625219381]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/scoreView/MarginContainer/VBoxContainer" unique_id=1781796569]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="scorePolaroid" parent="CanvasLayer/scoreView/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1730847234 instance=ExtResource("3_ag2cp")]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+script = null
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/scoreView/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1607332394]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="scoreLabelEnd" parent="CanvasLayer/scoreView/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1631263832 instance=ExtResource("4_ag2cp")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/scoreView/MarginContainer/VBoxContainer" unique_id=1021201685]
+custom_minimum_size = Vector2(300, 0)
+custom_maximum_size = Vector2(300, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("5_qne1y")
+theme_override_font_sizes/font_size = 35
+text = "Next photo"
+script = ExtResource("6_c76t3")
+
+[node name="polaroid" parent="CanvasLayer" unique_id=372901086 instance=ExtResource("3_ag2cp")]
 visible = false
-layout_mode = 0
-offset_left = 25.0
-offset_top = 245.0
-offset_right = 298.0
-offset_bottom = 290.0
-text = "data"
-label_settings = SubResource("LabelSettings_ag2cp")
-horizontal_alignment = 1
-vertical_alignment = 1

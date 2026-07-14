@@ -1,5 +1,9 @@
 extends Panel
 
+@onready var scoreLabel = $polScoreLabel
+@onready var mask = $MarginContainer/Overlay
+@onready var scoreView = $"../../.."
+
 var startPosition: Vector2
 var endPosition
 
@@ -19,7 +23,7 @@ func _process(delta):
 		progress += mouse.distance_to(lastMouse) * 0.0005
 		progress = clamp(progress, 0.0, 1.0)
 
-		$MarginContainer/Overlay.modulate.a = lerp(1.0, 0.0, progress)
+		mask.modulate.a = lerp(1.0, 0.0, progress)
 
 	if progress == 1 && not callingNext:
 		callingNext = true
@@ -28,31 +32,33 @@ func _process(delta):
 	lastMouse = mouse
 
 func show_score():
-	$scoreLabel.visible = true
-	await get_tree().create_timer(5).timeout
+	scoreLabel.visible = true
+	await get_tree().create_timer(2).timeout
 	
 	$"../..".next()
 
 func next_photo(photo):
-	var tween = create_tween()
+	if photo != 0:
+		var tween = create_tween()
 
-	tween.tween_interval(1.0)
-	tween.tween_property(self, "position", endPosition, 0.7)
+		tween.tween_interval(1.0)
+		tween.tween_property(self, "position", endPosition, 0.7)
 
-	await tween.finished
-	callingNext = false
+		await tween.finished
+		callingNext = false
 	
 	if photo >= PhotoManager.photos.size():
 		print("klaar")
 		return
 	
+	scoreLabel.visible = false
 	position = startPosition
 	rotation = 0
 	scale = Vector2.ONE
 	modulate.a = 1.0
 	visible = true
 	progress = 0.0
-	$MarginContainer/Overlay.modulate.a = lerp(1.0, 0.0, progress)
+	mask.modulate.a = lerp(1.0, 0.0, progress)
 
 	$MarginContainer/Panel/TextureRect.texture = PhotoManager.photos[photo].texture
 	
@@ -62,7 +68,5 @@ func next_photo(photo):
 	var date = Time.get_datetime_dict_from_unix_time(localTime)
 	$Label.text = "%02d-%02d-%04d %02d:%02d:%02d" % [date.day, date.month, date.year, date.hour, date.minute, date.second]
 	
-	var formatString = "score: %s"
-	var string = formatString % [PhotoManager.photos[photo].score]
-	print(string)
-	$scoreLabel.text = string
+	var string = "Score: %d" % [PhotoManager.photos[photo].score]
+	scoreLabel.text = string
