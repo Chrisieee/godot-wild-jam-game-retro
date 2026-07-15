@@ -11,6 +11,7 @@ var progress = 0.0
 var lastMouse = Vector2.ZERO
 
 var callingNext = false
+var photoId = 0
 
 func _ready():
 	startPosition = position
@@ -35,7 +36,8 @@ func show_score():
 	scoreLabel.visible = true
 	await get_tree().create_timer(2).timeout
 	
-	$"../..".next()
+	if photoId + 1 <= PhotoManager.photos.size():
+		$"../..".next()
 
 func next_photo(photo):
 	if photo != 0:
@@ -46,27 +48,28 @@ func next_photo(photo):
 
 		await tween.finished
 		callingNext = false
+		photoId = photo
 	
-	if photo >= PhotoManager.photos.size():
+	if photoId >= PhotoManager.photos.size():
 		print("klaar")
 		return
-	
-	scoreLabel.visible = false
-	position = startPosition
-	rotation = 0
-	scale = Vector2.ONE
-	modulate.a = 1.0
-	visible = true
-	progress = 0.0
-	mask.modulate.a = lerp(1.0, 0.0, progress)
+	else:
+		scoreLabel.visible = false
+		position = startPosition
+		rotation = 0
+		scale = Vector2.ONE
+		modulate.a = 1.0
+		visible = true
+		progress = 0.0
+		mask.modulate.a = lerp(1.0, 0.0, progress)
 
-	$MarginContainer/Panel/TextureRect.texture = PhotoManager.photos[photo].texture
+		$MarginContainer/Panel/TextureRect.texture = PhotoManager.photos[photo].texture
 	
-	var bias = Time.get_time_zone_from_system().bias * 60
-	var localTime = PhotoManager.photos[photo].timeTaken + bias
+		var bias = Time.get_time_zone_from_system().bias * 60
+		var localTime = PhotoManager.photos[photo].timeTaken + bias
 	
-	var date = Time.get_datetime_dict_from_unix_time(localTime)
-	$Label.text = "%02d-%02d-%04d %02d:%02d:%02d" % [date.day, date.month, date.year, date.hour, date.minute, date.second]
+		var date = Time.get_datetime_dict_from_unix_time(localTime)
+		$Label.text = "%02d-%02d-%04d %02d:%02d:%02d" % [date.day, date.month, date.year, date.hour, date.minute, date.second]
 	
-	var string = "Score: %d" % [PhotoManager.photos[photo].score]
-	scoreLabel.text = string
+		var string = "Score: %d" % [PhotoManager.photos[photo].score]
+		scoreLabel.text = string

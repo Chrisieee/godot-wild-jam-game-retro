@@ -25,7 +25,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-text = "Score:"
+text = "Total score:"
 label_settings = SubResource("LabelSettings_5w07v")
 vertical_alignment = 1
 

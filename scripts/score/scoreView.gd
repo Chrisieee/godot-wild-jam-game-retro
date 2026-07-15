@@ -5,7 +5,8 @@ extends Panel
 @onready var mask = $MarginContainer/VBoxContainer/HBoxContainer/scorePolaroid/MarginContainer/Overlay
 @onready var texture = $MarginContainer/VBoxContainer/HBoxContainer/scorePolaroid/MarginContainer/Panel/TextureRect
 @onready var label = $MarginContainer/VBoxContainer/HBoxContainer/scorePolaroid/Label
-@onready var scoreLabelEnd = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/scoreLabelEnd
+
+@export var scoreLabel: PackedScene
 
 func show_full_score(photo):
 	polaroid.visible = false
@@ -30,4 +31,18 @@ func show_full_score(photo):
 	$MarginContainer/VBoxContainer/Button.lastPhoto = photo
 
 func show_score_reason(photo):
-	scoreLabelEnd.get_node("Label2").text = str(PhotoManager.photos[photo - 1].score)
+	var labels = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer.get_children()
+	for l in labels:
+		l.queue_free()
+	
+	for reason in PhotoManager.photos[photo - 1].scoreReasons:
+		var newLabel = scoreLabel.instantiate()
+		
+		newLabel.get_node("Label").text = reason.name
+		newLabel.get_node("Label2").text = str(reason.points)
+		
+		$MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer.add_child(newLabel)
+		
+	var newLabel = scoreLabel.instantiate()
+	newLabel.get_node("Label2").text = str(PhotoManager.photos[photo - 1].score)
+	$MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer.add_child(newLabel)

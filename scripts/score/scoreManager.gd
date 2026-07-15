@@ -6,11 +6,12 @@ func calculate_score(photo):
 	var score = 0
 	
 	for object in photo.objects:
-		score += roundi(object.object.points * object.visibility)
+		var objectScore = roundi(object.object.points * object.visibility)
+		score += objectScore
 		
 		photo.scoreReasons.append({
 			"name": object.object.objectName,
-			"points": score
+			"points": objectScore
 		})
 		print(score)
 	
@@ -53,5 +54,7 @@ func check_objects(photo):
 			var result = PhotoObjectResult.new()
 			result.object = object
 			result.visibility = visibility
-
+			
+			print(result.object)
+			
 			photo.objects.append(result)
