@@ -6,8 +6,8 @@ extends Node3D
 
 @onready var areaSize := ($spawnArea.mesh as PlaneMesh).size
 
-var positions: Array[Vector3] = []
 var rng := RandomNumberGenerator.new()
+var positions: Array[Vector3] = []
 
 func _ready():
 	rng.seed = 12345
@@ -23,7 +23,7 @@ func generate():
 			var tree = treeScene.instantiate()
 			tree.position = pos
 			tree.rotation.y = rng.randf() * TAU
-			var scale = rng.randf_range(1.3, 2.5)
+			var scale = rng.randf_range(1, 2)
 			tree.scale = Vector3.ONE * scale
 			
 			$trees.add_child(tree)

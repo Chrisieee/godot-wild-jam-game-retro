@@ -8,11 +8,10 @@
 [ext_resource type="Script" uid="uid://cm73y7cd02mkd" path="res://scripts/camera/photo.gd" id="5_oreqr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lfxu0"]
-height = 2.3925781
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_lfxu0"]
 radius = 0.48046875
-height = 3.8920898
+height = 2.0879211
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_40wer"]
 shader = ExtResource("3_40wer")
@@ -77,15 +76,15 @@ font_color = Color(0, 0, 0, 1)
 script = ExtResource("1_xlo1q")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2012787324]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19628906, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90283203, 0)
 shape = SubResource("CapsuleShape3D_lfxu0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1580538669]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8640137, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9552765, 0)
 mesh = SubResource("CapsuleMesh_lfxu0")
 
 [node name="head" type="Node3D" parent="." unique_id=30802837]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4096086, -0.19560218)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.822963, -0.19560218)
 
 [node name="camera" type="Node3D" parent="head" unique_id=709149958]
 script = ExtResource("2_aaff8")
@@ -99,7 +98,7 @@ render_target_update_mode = 4
 [node name="Camera3D" type="Camera3D" parent="head" unique_id=25853191]
 
 [node name="camera2" parent="head/Camera3D" unique_id=529910474 instance=ExtResource("3_oreqr")]
-transform = Transform3D(0.0099319955, 0, 0.09950556, 0, 0.1, 0, -0.09950556, 0, 0.0099319955, 0.6515043, -0.7763816, -1.153795)
+transform = Transform3D(0.0049659954, 0, 0.04975278, 0, 0.05, 0, -0.04975278, 0, 0.0049659954, 0.6515043, -0.48305905, -1.153795)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=243201809]
 

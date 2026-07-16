@@ -6,3 +6,4 @@ class_name PhotoObject
 
 func _ready():
 	add_to_group("photoObjects")
+	add_to_group(objectName)

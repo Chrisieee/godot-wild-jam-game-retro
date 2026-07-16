@@ -4,14 +4,19 @@ extends CharacterBody3D
 @onready var camera := $head/Camera3D
 @onready var cameraControl := $head/camera
 
-@export var speed = 20
+@export var speed = 10
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var target_velocity = Vector3.ZERO
 
+var isCrouching = false
+var standHeight = 2.0
+var crouchHeight = 0.5
+
+var isSprinting = false
+
 func _physics_process(delta):
-	
 	var input_dir = Vector2.ZERO
 
 	if Input.is_action_pressed("right"):
@@ -41,7 +46,31 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+func _crouch():
+	isCrouching = !isCrouching
+	if isCrouching:
+		$CollisionShape3D.shape.height = crouchHeight
+		speed = 5
+	else:
+		$CollisionShape3D.shape.height = standHeight
+		speed = 10
+
 func _input(event):
+	if event.is_action_pressed("crouch"):
+		_crouch()
+	
+	if event.is_action_released("crouch"):
+		_crouch()
+		
+	if event.is_action_pressed("sprint"):
+		if isCrouching:
+			_crouch()
+		
+		speed = 15
+	
+	if event.is_action_released("sprint"):
+		speed = 10
+	
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	

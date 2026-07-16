@@ -3,8 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://cuhwyk0a0leyk" path="res://parts/player.tscn" id="1_014kd"]
 [ext_resource type="Script" uid="uid://buyotnwu7bihr" path="res://scripts/level_1.gd" id="1_bswci"]
 [ext_resource type="PackedScene" uid="uid://bwv6k2rl3nntg" path="res://parts/forest.tscn" id="3_rus8k"]
+[ext_resource type="PackedScene" uid="uid://4j2jcv1a164f" path="res://parts/animal_spawner.tscn" id="4_5xbjy"]
 
 [sub_resource type="Environment" id="Environment_014kd"]
+ambient_light_energy = 1.22
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_r6c0r"]
 size = Vector2(200, 200)
@@ -17,14 +19,17 @@ script = ExtResource("1_bswci")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1605139383]
 transform = Transform3D(0.7826234, -0.3212085, 0.533222, -0.6224955, -0.40383473, 0.67038566, 0, -0.85658777, -0.51600134, 90.65668, 71.2511, 0)
-light_energy = 2.195
+light_energy = 2.406
+light_specular = 0.0
 shadow_enabled = true
+shadow_opacity = 0.69
 shadow_blur = 2.711
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1339717578]
 environment = SubResource("Environment_014kd")
 
 [node name="floor" type="StaticBody3D" parent="." unique_id=1277410842]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=1076422641]
 mesh = SubResource("PlaneMesh_r6c0r")
@@ -37,170 +42,199 @@ shape = SubResource("BoxShape3D_lfxu0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9992819, 0)
 
 [node name="trees" type="StaticBody3D" parent="." unique_id=1109809678]
+transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0, 0, 0)
 
 [node name="dense" type="StaticBody3D" parent="trees" unique_id=1160142649]
 
 [node name="forestSpawner" parent="trees/dense" unique_id=474062151 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.979324, 0, 75.14326)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner2" parent="trees/dense" unique_id=1796509021 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.979324, 0, 25.142097)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner3" parent="trees/dense" unique_id=527302777 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.979324, 0, -24.681084)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner4" parent="trees/dense" unique_id=895442603 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.979324, 0, -74.62487)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner5" parent="trees/dense" unique_id=1436032308 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.8929, 0, 74.71736)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner6" parent="trees/dense" unique_id=1860906386 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.8929, 0, 24.716202)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner7" parent="trees/dense" unique_id=806611592 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.8929, 0, -25.10698)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner8" parent="trees/dense" unique_id=572220036 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.8929, 0, -75.050766)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner9" parent="trees/dense" unique_id=1799096726 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.84851, 0, 74.66807)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner10" parent="trees/dense" unique_id=1999403361 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.976315, 0, 74.63082)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner11" parent="trees/dense" unique_id=1815108880 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.84851, 0, -74.74386)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner12" parent="trees/dense" unique_id=100057083 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.767029, 0, -74.74386)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner13" parent="trees/dense" unique_id=1221090566 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.979324, 0, 50.145676)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner14" parent="trees/dense" unique_id=669603988 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.979324, 0, 0.30090714)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner15" parent="trees/dense" unique_id=1177990066 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.979324, 0, -49.668198)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner16" parent="trees/dense" unique_id=1178115781 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.908905, 0, -74.62487)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner17" parent="trees/dense" unique_id=398205549 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20130157, 0, -74.62487)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner18" parent="trees/dense" unique_id=794374438 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.7921, 0, -74.84747)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner19" parent="trees/dense" unique_id=106658675 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.8929, 0, -49.967182)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner20" parent="trees/dense" unique_id=1795335673 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.8929, 0, -0.33377075)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner21" parent="trees/dense" unique_id=1681827954 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.8929, 0, 49.79188)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner22" parent="trees/dense" unique_id=1524541493 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.872223, 0, 74.74319)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner23" parent="trees/dense" unique_id=759508023 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.062210083, 0, 74.71736)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner24" parent="trees/dense" unique_id=5850174 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.918953, 0, 74.71736)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner25" parent="trees/dense" unique_id=1377459336 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.7921, 0, -49.96444)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner26" parent="trees/dense" unique_id=539480531 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.7921, 0, 49.704002)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner27" parent="trees/dense" unique_id=1815941379 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.95501, 0, 49.704002)
 amount = 100
+minDistance = 8.0
 
 [node name="forestSpawner28" parent="trees/dense" unique_id=1153806954 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.979095, 0, -49.96444)
 amount = 100
+minDistance = 8.0
 
 [node name="light" type="StaticBody3D" parent="trees" unique_id=131591669]
 
 [node name="forestSpawner13" parent="trees/light" unique_id=218316051 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.93784, 0, -24.901012)
-amount = 7
+amount = 10
 
 [node name="forestSpawner14" parent="trees/light" unique_id=1299811033 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.909378, 0, -49.74077)
-amount = 7
+amount = 10
 
 [node name="forestSpawner15" parent="trees/light" unique_id=258193146 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05010605, 0, -49.74077)
-amount = 7
+amount = 10
 
 [node name="forestSpawner16" parent="trees/light" unique_id=502276670 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.978355, 0, -49.74077)
-amount = 7
+amount = 10
 
 [node name="forestSpawner17" parent="trees/light" unique_id=946903654 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.93784, 0, 0.17115402)
-amount = 7
+amount = 10
 
 [node name="forestSpawner18" parent="trees/light" unique_id=382538755 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.93784, 0, 24.87281)
-amount = 7
+amount = 10
 
 [node name="forestSpawner19" parent="trees/light" unique_id=681999247 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.150265, 0, -24.901012)
-amount = 7
+amount = 10
 
 [node name="forestSpawner20" parent="trees/light" unique_id=521789190 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.150265, 0, 0.17115402)
-amount = 7
+amount = 10
 
 [node name="forestSpawner21" parent="trees/light" unique_id=140718228 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.150265, 0, 24.87281)
-amount = 7
+amount = 10
 
 [node name="forestSpawner22" parent="trees/light" unique_id=1579927488 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.909378, 0, 49.83667)
-amount = 7
+amount = 10
 
 [node name="forestSpawner23" parent="trees/light" unique_id=1666115510 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05010605, 0, 49.83667)
-amount = 7
+amount = 10
 
 [node name="forestSpawner24" parent="trees/light" unique_id=20041544 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.978355, 0, 49.83667)
-amount = 7
+amount = 10
 
 [node name="clean" type="StaticBody3D" parent="trees" unique_id=1321325452]
 
@@ -235,3 +269,5 @@ amount = 2
 [node name="forestSpawner21" parent="trees/clean" unique_id=1248346142 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.978355, 0, -0.10903549)
 amount = 2
+
+[node name="animalSpawner" parent="." unique_id=718169120 instance=ExtResource("4_5xbjy")]
