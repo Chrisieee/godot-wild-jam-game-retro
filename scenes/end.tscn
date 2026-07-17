@@ -122,10 +122,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ee763")
 
 [node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1147490477]
 layout_mode = 2
-text = "Thank you for playing my little game!
-I am planning on building it out in a multiplayer game like letal company!
-If you have any feedback please let me know I would love to hear what you
-guys think and what I can do better when working on the game more!"
+text = "Thank you so much for playing my little game!
+I'm planning to turn it into a multiplayer game inspired by Lethal Company, 
+so this is just the beginning!
+If you have any feedback, I'd love to hear it. Let me know what you 
+think and what you'd like to see improved in future updates!"
 label_settings = SubResource("LabelSettings_nl5ow")
 horizontal_alignment = 1
 

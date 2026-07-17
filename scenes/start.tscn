@@ -123,10 +123,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_hjb8m")
 
 [node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1379475569]
 layout_mode = 2
-text = "Its time to start your photography journey! 
-Grab your old polaroid camera and show us what you got!
-You do need to watch out on the amount of pictures you can make because
-you can run out..."
+text = "It's time to start your photography journey!
+Grab your old Polaroid camera and show us what you've got!
+Just be careful... You only have a limited number of photos, and once 
+they're gone... they're gone."
 label_settings = SubResource("LabelSettings_u80x2")
 horizontal_alignment = 1
 

@@ -134,10 +134,11 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=862024458]
 layout_mode = 2
-text = "Not in the mood to make photos? Thats okay!
+text = "Not in the mood to take photos? That's okay!
 
-Enjoy the picture of my cat in the mean time!
-If you want to start anyways that is possible by hitting the button below!"
+Enjoy this picture of my cat in the meantime.
+
+If you decide to give it a try after all, just hit the button below!"
 label_settings = SubResource("LabelSettings_8wxvc")
 horizontal_alignment = 1
 
