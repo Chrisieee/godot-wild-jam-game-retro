@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://d23gojmb5nmll"]
+
+[ext_resource type="PackedScene" uid="uid://cmvweot2qii82" path="res://src/objects/camera.glb" id="1_7lmop"]
+[ext_resource type="Texture2D" uid="uid://cjit5b0gwl4v0" path="res://src/pictures/cat.jpg" id="2_dyglm"]
+[ext_resource type="FontFile" uid="uid://bkd268sfppacl" path="res://src/fonts/NewRocker-Regular.ttf" id="2_nj43b"]
+[ext_resource type="Script" uid="uid://dndl48dl5u0eh" path="res://scripts/startButton.gd" id="3_dyglm"]
+
+[sub_resource type="Environment" id="Environment_n3408"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jdp01"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnuws"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_8wxvc"]
+font = ExtResource("2_nj43b")
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[node name="quit" type="Node2D" unique_id=1907712146]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=425066360]
+modulate = Color(1, 1, 1, 0.83137256)
+offset_left = 29.0
+offset_right = 429.0
+offset_bottom = 500.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1500174724]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(400, 500)
+render_target_update_mode = 4
+
+[node name="camera" parent="SubViewportContainer/SubViewport" unique_id=1162581993 instance=ExtResource("1_7lmop")]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=302113439]
+transform = Transform3D(0.60367084, -0.32620975, 0.72743994, -4.8612534e-08, 0.912455, 0.40917712, -0.7972337, -0.24700832, 0.55082244, 14.472059, 7.273002, 10.927212)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=1876266589]
+transform = Transform3D(0.7826234, -0.3212085, 0.533222, -0.6224955, -0.40383473, 0.67038566, 0, -0.85658777, -0.51600134, 90.65668, 71.2511, 0)
+light_energy = 0.932
+shadow_enabled = true
+shadow_blur = 2.711
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=928157932]
+environment = SubResource("Environment_n3408")
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="." unique_id=1448646424]
+modulate = Color(1, 1, 1, 0.83137256)
+offset_left = 880.0
+offset_top = 1.0
+offset_right = 1280.0
+offset_bottom = 501.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2" unique_id=559586833]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(400, 500)
+render_target_update_mode = 4
+
+[node name="camera" parent="SubViewportContainer2/SubViewport" unique_id=833566988 instance=ExtResource("1_7lmop")]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer2/SubViewport" unique_id=1941739489]
+transform = Transform3D(-0.50000006, -0.35500377, 0.78991914, 0, 0.9121201, 0.40992305, -0.8660254, 0.20496155, -0.4560601, 14.472059, 7.273002, -8.688568)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer2/SubViewport" unique_id=2058426]
+transform = Transform3D(0.7826234, -0.3212085, 0.533222, -0.6224955, -0.40383473, 0.67038566, 0, -0.85658777, -0.51600134, 90.65668, 71.2511, 0)
+light_energy = 0.932
+shadow_enabled = true
+shadow_blur = 2.711
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer2/SubViewport" unique_id=2081777665]
+environment = SubResource("Environment_n3408")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=18287805]
+offset_right = 1281.0
+offset_bottom = 718.0
+mouse_filter = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 50
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=1963102655]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jdp01")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel" unique_id=1169061181]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer" unique_id=863308140]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Panel" type="Panel" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1155162263]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_qnuws")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/Panel" unique_id=672907845]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dyglm")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=862024458]
+layout_mode = 2
+text = "Not in the mood to make photos? Thats okay!
+
+Enjoy the picture of my cat in the mean time!
+If you want to start anyways that is possible by hitting the button below!"
+label_settings = SubResource("LabelSettings_8wxvc")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1855782975]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer" unique_id=1019624585]
+layout_mode = 2
+
+[node name="startButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=81303715]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nj43b")
+theme_override_font_sizes/font_size = 40
+text = "Start anyways?"
+script = ExtResource("3_dyglm")

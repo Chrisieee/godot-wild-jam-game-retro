@@ -31,22 +31,25 @@ func lower_camera():
 	cameraModel.visible = true
 
 func make_photo():
-	var photo := PhotoData.new()
+	if remainingPhotos > 0:
+		var photo := PhotoData.new()
 	
-	photo.image = $"../SubViewport".get_texture().get_image()
-	photo.texture = ImageTexture.create_from_image(photo.image)
-	photo.timeTaken = Time.get_unix_time_from_system()
-	photo.map = GameManager.map
+		photo.image = $"../SubViewport".get_texture().get_image()
+		photo.texture = ImageTexture.create_from_image(photo.image)
+		photo.timeTaken = Time.get_unix_time_from_system()
+		photo.map = GameManager.map
 	
-	PhotoManager.photos.append(photo)
+		PhotoManager.photos.append(photo)
 	
-	remainingPhotos -= 1
-	label.text = str(remainingPhotos)
+		remainingPhotos -= 1
+		label.text = str(remainingPhotos)
 	
-	photo.score = ScoreManager.calculate_score(photo)
+		photo.score = ScoreManager.calculate_score(photo)
 	
-	print(photo.score)
+		print(photo.score)
 	
-	lower_camera()
+		lower_camera()
 	
-	polaroidPhoto.show_photo(photo)
+		polaroidPhoto.show_photo(photo)
+	else:
+		print("No more pictures")

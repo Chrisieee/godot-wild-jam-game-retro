@@ -14,6 +14,9 @@ size = Vector2(200, 200)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lfxu0"]
 size = Vector3(201.42773, 1, 202.4668)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hjb8m"]
+size = Vector3(201.60718, 33.693848, 2.2500117)
+
 [node name="level1" type="Node3D" unique_id=734127826]
 script = ExtResource("1_bswci")
 
@@ -271,3 +274,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.978355, 0, -0.10903549)
 amount = 2
 
 [node name="animalSpawner" parent="." unique_id=718169120 instance=ExtResource("4_5xbjy")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=856194237]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1596180746]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26916504, 16.346924, 101.08934)
+shape = SubResource("BoxShape3D_hjb8m")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1378186140]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26916504, 16.346924, -101.02682)
+shape = SubResource("BoxShape3D_hjb8m")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=617553181]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -102.37435, 16.346924, 2.4349365)
+shape = SubResource("BoxShape3D_hjb8m")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=769900764]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 101.86292, 16.346924, -0.27031708)
+shape = SubResource("BoxShape3D_hjb8m")

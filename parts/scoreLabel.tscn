@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dd050pjj1yrq6"]
 
-[ext_resource type="FontFile" uid="uid://bkd268sfppacl" path="res://fonts/NewRocker-Regular.ttf" id="1_7q1iy"]
+[ext_resource type="FontFile" uid="uid://bkd268sfppacl" path="res://src/fonts/NewRocker-Regular.ttf" id="1_7q1iy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5w07v"]
 font = ExtResource("1_7q1iy")

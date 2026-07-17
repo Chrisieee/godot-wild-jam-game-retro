@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://dk7cj6nrq5kd8"]
+
+[ext_resource type="PackedScene" uid="uid://cmvweot2qii82" path="res://src/objects/camera.glb" id="1_jaeev"]
+[ext_resource type="FontFile" uid="uid://bkd268sfppacl" path="res://src/fonts/NewRocker-Regular.ttf" id="2_u80x2"]
+[ext_resource type="Script" uid="uid://dndl48dl5u0eh" path="res://scripts/startButton.gd" id="3_bodal"]
+[ext_resource type="Script" uid="uid://bsy4smlmmiarp" path="res://scripts/quitButton.gd" id="4_kdmts"]
+
+[sub_resource type="Environment" id="Environment_bodal"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfxu0"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjb8m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_u80x2"]
+font = ExtResource("2_u80x2")
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[node name="start" type="Node2D" unique_id=1473273141]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=622777830]
+modulate = Color(1, 1, 1, 0.83137256)
+offset_left = 29.0
+offset_right = 429.0
+offset_bottom = 500.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=284069936]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(400, 500)
+render_target_update_mode = 4
+
+[node name="camera" parent="SubViewportContainer/SubViewport" unique_id=1162581993 instance=ExtResource("1_jaeev")]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=970981998]
+transform = Transform3D(0.60367084, -0.32620975, 0.72743994, -4.8612534e-08, 0.912455, 0.40917712, -0.7972337, -0.24700832, 0.55082244, 14.472059, 7.273002, 10.927212)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=383396989]
+transform = Transform3D(0.7826234, -0.3212085, 0.533222, -0.6224955, -0.40383473, 0.67038566, 0, -0.85658777, -0.51600134, 90.65668, 71.2511, 0)
+light_energy = 0.932
+shadow_enabled = true
+shadow_blur = 2.711
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=314580356]
+environment = SubResource("Environment_bodal")
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="." unique_id=1486390163]
+modulate = Color(1, 1, 1, 0.83137256)
+offset_left = 880.0
+offset_top = 1.0
+offset_right = 1280.0
+offset_bottom = 501.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2" unique_id=1590090500]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(400, 500)
+render_target_update_mode = 4
+
+[node name="camera" parent="SubViewportContainer2/SubViewport" unique_id=1422903294 instance=ExtResource("1_jaeev")]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer2/SubViewport" unique_id=1826586582]
+transform = Transform3D(-0.50000006, -0.35500377, 0.78991914, 0, 0.9121201, 0.40992305, -0.8660254, 0.20496155, -0.4560601, 14.472059, 7.273002, -8.688568)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer2/SubViewport" unique_id=416010103]
+transform = Transform3D(0.7826234, -0.3212085, 0.533222, -0.6224955, -0.40383473, 0.67038566, 0, -0.85658777, -0.51600134, 90.65668, 71.2511, 0)
+light_energy = 0.932
+shadow_enabled = true
+shadow_blur = 2.711
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer2/SubViewport" unique_id=2038555086]
+environment = SubResource("Environment_bodal")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1512711759]
+offset_right = 1281.0
+offset_bottom = 718.0
+mouse_filter = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 50
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=1166799539]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfxu0")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel" unique_id=1105272473]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer" unique_id=418822927]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Panel" type="Panel" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=475427779]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_hjb8m")
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1379475569]
+layout_mode = 2
+text = "Its time to start your photography journey! 
+Grab your old polaroid camera and show us what you got!
+You do need to watch out on the amount of pictures you can make because
+you can run out..."
+label_settings = SubResource("LabelSettings_u80x2")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=115108909]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer" unique_id=1137492582]
+layout_mode = 2
+
+[node name="startButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=489904966]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_u80x2")
+theme_override_font_sizes/font_size = 40
+text = "Start"
+script = ExtResource("3_bodal")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1912967121]
+custom_maximum_size = Vector2(-1, 30)
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="quitButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2" unique_id=1531409735]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_u80x2")
+theme_override_font_sizes/font_size = 25
+text = "Quit"
+script = ExtResource("4_kdmts")

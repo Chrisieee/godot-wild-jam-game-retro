@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cmvweot2qii82"
-path="res://.godot/imported/camera.glb-ff46a82105681850ff4e181278b62ffb.scn"
+path="res://.godot/imported/camera.glb-405109ae2959a880127287cba459320b.scn"
 
 [deps]
 
-source_file="res://objects/camera.glb"
-dest_files=["res://.godot/imported/camera.glb-ff46a82105681850ff4e181278b62ffb.scn"]
+source_file="res://src/objects/camera.glb"
+dest_files=["res://.godot/imported/camera.glb-405109ae2959a880127287cba459320b.scn"]
 
 [params]
 

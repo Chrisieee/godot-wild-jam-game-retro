@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://qh30ippddc81" path="res://scripts/develop/developManager.gd" id="1_ptjpa"]
 [ext_resource type="Script" uid="uid://dx85gkdkjf867" path="res://scripts/score/scoreView.gd" id="3_5yyuv"]
 [ext_resource type="PackedScene" uid="uid://ckjm0n2nq6wvt" path="res://parts/polaroid.tscn" id="3_ag2cp"]
-[ext_resource type="PackedScene" uid="uid://cmvweot2qii82" path="res://objects/camera.glb" id="3_ptjpa"]
+[ext_resource type="PackedScene" uid="uid://cmvweot2qii82" path="res://src/objects/camera.glb" id="3_ptjpa"]
 [ext_resource type="PackedScene" uid="uid://dd050pjj1yrq6" path="res://parts/scoreLabel.tscn" id="4_ag2cp"]
-[ext_resource type="FontFile" uid="uid://bkd268sfppacl" path="res://fonts/NewRocker-Regular.ttf" id="5_qne1y"]
+[ext_resource type="FontFile" uid="uid://bkd268sfppacl" path="res://src/fonts/NewRocker-Regular.ttf" id="5_qne1y"]
 [ext_resource type="Script" uid="uid://dvovgynhniwo7" path="res://scripts/score/button.gd" id="6_c76t3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjb8m"]

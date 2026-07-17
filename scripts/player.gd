@@ -59,8 +59,8 @@ func _input(event):
 	if event.is_action_pressed("crouch"):
 		_crouch()
 	
-	if event.is_action_released("crouch"):
-		_crouch()
+	#if event.is_action_released("crouch"):
+		#_crouch()
 		
 	if event.is_action_pressed("sprint"):
 		if isCrouching:
