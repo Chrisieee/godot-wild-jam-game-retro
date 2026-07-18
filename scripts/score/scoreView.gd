@@ -7,6 +7,7 @@ extends Panel
 @onready var label = $MarginContainer/VBoxContainer/HBoxContainer/scorePolaroid/Label
 
 @export var scoreLabel: PackedScene
+@export var scoreLabelEnd: PackedScene
 
 func show_full_score(photo):
 	polaroid.visible = false
@@ -39,10 +40,10 @@ func show_score_reason(photo):
 		var newLabel = scoreLabel.instantiate()
 		
 		newLabel.get_node("Label").text = reason.name
-		newLabel.get_node("Label2").text = str(reason.points)
+		newLabel.get_node("Label2").text = "+ %d" % [reason.points]
 		
 		$MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer.add_child(newLabel)
 		
-	var newLabel = scoreLabel.instantiate()
+	var newLabel = scoreLabelEnd.instantiate()
 	newLabel.get_node("Label2").text = str(PhotoManager.photos[photo - 1].score)
 	$MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer.add_child(newLabel)

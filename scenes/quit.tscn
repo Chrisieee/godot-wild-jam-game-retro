@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cjit5b0gwl4v0" path="res://src/pictures/cat.jpg" id="2_dyglm"]
 [ext_resource type="FontFile" uid="uid://bkd268sfppacl" path="res://src/fonts/NewRocker-Regular.ttf" id="2_nj43b"]
 [ext_resource type="Script" uid="uid://dndl48dl5u0eh" path="res://scripts/startButton.gd" id="3_dyglm"]
+[ext_resource type="LabelSettings" uid="uid://b2obbwu5y7m3e" path="res://src/settings/labelSettings.tres" id="3_n3408"]
 
 [sub_resource type="Environment" id="Environment_n3408"]
 
@@ -25,11 +26,6 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-
-[sub_resource type="LabelSettings" id="LabelSettings_8wxvc"]
-font = ExtResource("2_nj43b")
-font_size = 20
-font_color = Color(0, 0, 0, 1)
 
 [node name="quit" type="Node2D" unique_id=1907712146]
 
@@ -139,7 +135,7 @@ text = "Not in the mood to take photos? That's okay!
 Enjoy this picture of my cat in the meantime.
 
 If you decide to give it a try after all, just hit the button below!"
-label_settings = SubResource("LabelSettings_8wxvc")
+label_settings = ExtResource("3_n3408")
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1855782975]

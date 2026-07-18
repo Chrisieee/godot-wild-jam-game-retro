@@ -5,13 +5,20 @@
 [ext_resource type="PackedScene" uid="uid://ckjm0n2nq6wvt" path="res://parts/polaroid.tscn" id="3_ag2cp"]
 [ext_resource type="PackedScene" uid="uid://cmvweot2qii82" path="res://src/objects/camera.glb" id="3_ptjpa"]
 [ext_resource type="PackedScene" uid="uid://dd050pjj1yrq6" path="res://parts/scoreLabel.tscn" id="4_ag2cp"]
+[ext_resource type="PackedScene" uid="uid://delgpkphax8pb" path="res://parts/scoreLabelEnd.tscn" id="5_cuy7h"]
 [ext_resource type="FontFile" uid="uid://bkd268sfppacl" path="res://src/fonts/NewRocker-Regular.ttf" id="5_qne1y"]
 [ext_resource type="Script" uid="uid://dvovgynhniwo7" path="res://scripts/score/button.gd" id="6_c76t3"]
+[ext_resource type="LabelSettings" uid="uid://b2obbwu5y7m3e" path="res://src/settings/labelSettings.tres" id="8_2kiuj"]
+[ext_resource type="Script" uid="uid://qxu1uu8xoao7" path="res://scripts/doneButton.gd" id="8_5o8f0"]
+[ext_resource type="Script" uid="uid://dndl48dl5u0eh" path="res://scripts/startButton.gd" id="9_cuy7h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjb8m"]
 bg_color = Color(0.4759596, 0.35143566, 0.26927388, 1)
 
 [sub_resource type="Environment" id="Environment_ptjpa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvqrq"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="develop" type="Node2D" unique_id=30682998]
 script = ExtResource("1_ptjpa")
@@ -69,6 +76,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_5yyuv")
 scoreLabel = ExtResource("4_ag2cp")
+scoreLabelEnd = ExtResource("5_cuy7h")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/scoreView" unique_id=879241453]
 layout_mode = 1
@@ -113,3 +121,63 @@ script = ExtResource("6_c76t3")
 
 [node name="polaroid" parent="CanvasLayer" unique_id=372901086 instance=ExtResource("3_ag2cp")]
 visible = false
+
+[node name="donePopup" type="Panel" parent="CanvasLayer" unique_id=575119896]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.0
+offset_top = -160.75
+offset_right = 222.0
+offset_bottom = 160.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hvqrq")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/donePopup" unique_id=1130491101]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/donePopup/MarginContainer" unique_id=1912596135]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="CanvasLayer/donePopup/MarginContainer/VBoxContainer" unique_id=593803543]
+layout_mode = 2
+size_flags_vertical = 6
+text = "You completed the development of all the photos!
+You are amazing. Good job!"
+label_settings = ExtResource("8_2kiuj")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/donePopup/MarginContainer/VBoxContainer" unique_id=447683550]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Average score: 0"
+label_settings = ExtResource("8_2kiuj")
+horizontal_alignment = 1
+
+[node name="startButton" type="Button" parent="CanvasLayer/donePopup/MarginContainer/VBoxContainer" unique_id=51932836]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_qne1y")
+theme_override_font_sizes/font_size = 30
+text = "Start again"
+script = ExtResource("9_cuy7h")
+
+[node name="quitButton" type="Button" parent="CanvasLayer/donePopup/MarginContainer/VBoxContainer" unique_id=517372854]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_qne1y")
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+script = ExtResource("8_5o8f0")

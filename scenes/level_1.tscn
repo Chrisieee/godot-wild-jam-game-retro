@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://buyotnwu7bihr" path="res://scripts/level_1.gd" id="1_bswci"]
 [ext_resource type="PackedScene" uid="uid://bwv6k2rl3nntg" path="res://parts/forest.tscn" id="3_rus8k"]
 [ext_resource type="PackedScene" uid="uid://4j2jcv1a164f" path="res://parts/animal_spawner.tscn" id="4_5xbjy"]
+[ext_resource type="PackedScene" uid="uid://bwr4d2cy5nkww" path="res://parts/bird.tscn" id="5_4nkto"]
 
 [sub_resource type="Environment" id="Environment_014kd"]
 ambient_light_energy = 1.22
@@ -32,7 +33,6 @@ shadow_blur = 2.711
 environment = SubResource("Environment_014kd")
 
 [node name="floor" type="StaticBody3D" parent="." unique_id=1277410842]
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=1076422641]
 mesh = SubResource("PlaneMesh_r6c0r")
@@ -274,6 +274,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.978355, 0, -0.10903549)
 amount = 2
 
 [node name="animalSpawner" parent="." unique_id=718169120 instance=ExtResource("4_5xbjy")]
+birdScene = ExtResource("5_4nkto")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=856194237]
 

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ckjm0n2nq6wvt"]
 
 [ext_resource type="Script" uid="uid://cxdcb0m0nmrem" path="res://scripts/develop/polaroid.gd" id="1_crlut"]
+[ext_resource type="FontFile" uid="uid://bkd268sfppacl" path="res://src/fonts/NewRocker-Regular.ttf" id="2_7infx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eq7tb"]
 bg_color = Color(1, 1, 1, 1)
@@ -29,6 +30,8 @@ border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ag2cp"]
+font = ExtResource("2_7infx")
+font_size = 20
 font_color = Color(0, 0, 0, 1)
 
 [node name="polaroid" type="Panel" unique_id=1730847234]

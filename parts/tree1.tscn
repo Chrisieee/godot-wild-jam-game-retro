@@ -11,7 +11,7 @@ size = Vector3(3.525453, 8.428772, 3.6161728)
 [node name="tree" type="StaticBody3D" unique_id=1394198399]
 script = ExtResource("1_x0foc")
 objectName = "tree"
-points = 25
+points = 5
 
 [node name="Tree" type="MeshInstance3D" parent="." unique_id=1579220133]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.054355636)

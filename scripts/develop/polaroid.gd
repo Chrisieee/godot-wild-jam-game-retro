@@ -52,6 +52,8 @@ func next_photo(photo):
 	
 	if photoId >= PhotoManager.photos.size():
 		print("klaar")
+		PhotoManager.photos.clear()
+		$"../donePopup".visible = true
 		return
 	else:
 		scoreLabel.visible = false

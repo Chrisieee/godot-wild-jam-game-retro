@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bwr4d2cy5nkww"]
+
+[ext_resource type="Script" uid="uid://6jr7qs8mhr22" path="res://scripts/score/photoObject.gd" id="1_1k3dd"]
+[ext_resource type="PackedScene" uid="uid://dqquepn12hge3" path="res://src/objects/bird.glb" id="2_o58hr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lfxu0"]
+size = Vector3(0.001, 1.0621185, 1.6677341)
+
+[node name="bird" type="StaticBody3D" unique_id=581902312]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9225998)
+script = ExtResource("1_1k3dd")
+objectName = "bird"
+points = 150
+
+[node name="bird" parent="." unique_id=1934613589 instance=ExtResource("2_o58hr")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.16783738, 0, 1.3155524)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=681687844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4995, 0.5246506, 1.2747793)
+shape = SubResource("BoxShape3D_lfxu0")
+
+[node name="photoPoints" type="Node3D" parent="." unique_id=110687267]
+
+[node name="bottom" type="Marker3D" parent="photoPoints" unique_id=1156965047]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05129817, 0, 1.2482717)
+
+[node name="top" type="Marker3D" parent="photoPoints" unique_id=217946241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05129817, 0.99250734, 0.92665994)
+
+[node name="center" type="Marker3D" parent="photoPoints" unique_id=638813542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05129817, 0.5062495, 1.2745543)
+
+[node name="tail" type="Marker3D" parent="photoPoints" unique_id=738091465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5379994, 0.20444864, 2.0963752)

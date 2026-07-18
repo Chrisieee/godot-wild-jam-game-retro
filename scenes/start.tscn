@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dk7cj6nrq5kd8"]
 
 [ext_resource type="PackedScene" uid="uid://cmvweot2qii82" path="res://src/objects/camera.glb" id="1_jaeev"]
+[ext_resource type="LabelSettings" uid="uid://b2obbwu5y7m3e" path="res://src/settings/labelSettings.tres" id="2_0auqf"]
 [ext_resource type="FontFile" uid="uid://bkd268sfppacl" path="res://src/fonts/NewRocker-Regular.ttf" id="2_u80x2"]
 [ext_resource type="Script" uid="uid://dndl48dl5u0eh" path="res://scripts/startButton.gd" id="3_bodal"]
 [ext_resource type="Script" uid="uid://bsy4smlmmiarp" path="res://scripts/quitButton.gd" id="4_kdmts"]
@@ -25,11 +26,6 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-
-[sub_resource type="LabelSettings" id="LabelSettings_u80x2"]
-font = ExtResource("2_u80x2")
-font_size = 20
-font_color = Color(0, 0, 0, 1)
 
 [node name="start" type="Node2D" unique_id=1473273141]
 
@@ -127,7 +123,7 @@ text = "It's time to start your photography journey!
 Grab your old Polaroid camera and show us what you've got!
 Just be careful... You only have a limited number of photos, and once 
 they're gone... they're gone."
-label_settings = SubResource("LabelSettings_u80x2")
+label_settings = ExtResource("2_0auqf")
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=115108909]

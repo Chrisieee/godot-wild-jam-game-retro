@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://delgpkphax8pb"]
+
+[ext_resource type="FontFile" uid="uid://bkd268sfppacl" path="res://src/fonts/NewRocker-Regular.ttf" id="1_fd33i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5w07v"]
+font = ExtResource("1_fd33i")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_3oj3p"]
+font = ExtResource("1_fd33i")
+font_size = 30
+
+[node name="scoreLabelEnd" type="HBoxContainer" unique_id=1631263832]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="." unique_id=698484275]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Total score:"
+label_settings = SubResource("LabelSettings_5w07v")
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=373267158]
+layout_mode = 2
+size_flags_vertical = 1
+text = "points"
+label_settings = SubResource("LabelSettings_3oj3p")
+horizontal_alignment = 1
+vertical_alignment = 1

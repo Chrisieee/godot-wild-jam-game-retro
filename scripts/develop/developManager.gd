@@ -8,6 +8,8 @@ var lastPhoto
 func _ready():
 	lastPhoto = 0
 	polaroid.next_photo(lastPhoto)
+	$CanvasLayer/donePopup.visible = false
+	scoreView.visible = false
 
 func next():
 	lastPhoto += 1

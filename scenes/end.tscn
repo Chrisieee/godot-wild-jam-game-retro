@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cmvweot2qii82" path="res://src/objects/camera.glb" id="1_p7m4f"]
 [ext_resource type="FontFile" uid="uid://bkd268sfppacl" path="res://src/fonts/NewRocker-Regular.ttf" id="2_bvfni"]
+[ext_resource type="LabelSettings" uid="uid://b2obbwu5y7m3e" path="res://src/settings/labelSettings.tres" id="2_s4tl2"]
 [ext_resource type="Script" uid="uid://dndl48dl5u0eh" path="res://scripts/startButton.gd" id="3_s4tl2"]
 
 [sub_resource type="Environment" id="Environment_8hmjt"]
@@ -24,11 +25,6 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-
-[sub_resource type="LabelSettings" id="LabelSettings_nl5ow"]
-font = ExtResource("2_bvfni")
-font_size = 20
-font_color = Color(0, 0, 0, 1)
 
 [node name="end" type="Node2D" unique_id=1888523759]
 
@@ -127,7 +123,7 @@ I'm planning to turn it into a multiplayer game inspired by Lethal Company,
 so this is just the beginning!
 If you have any feedback, I'd love to hear it. Let me know what you 
 think and what you'd like to see improved in future updates!"
-label_settings = SubResource("LabelSettings_nl5ow")
+label_settings = ExtResource("2_s4tl2")
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=738659367]
@@ -143,5 +139,5 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_bvfni")
 theme_override_font_sizes/font_size = 40
-text = "Start"
+text = "Start again"
 script = ExtResource("3_s4tl2")
