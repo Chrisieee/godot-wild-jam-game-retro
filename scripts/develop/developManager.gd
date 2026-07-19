@@ -6,6 +6,8 @@ extends Node2D
 var lastPhoto
 
 func _ready():
+	$AudioStreamPlayer.play()
+	
 	lastPhoto = 0
 	polaroid.next_photo(lastPhoto)
 	$CanvasLayer/donePopup.visible = false
@@ -17,5 +19,6 @@ func next():
 
 func _input(event):
 	if event.is_action_pressed("develop"):
+		$AudioStreamPlayer.stop()
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		get_tree().change_scene_to_file("res://scenes/level_1.tscn")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxdcb0m0nmrem" path="res://scripts/develop/polaroid.gd" id="1_crlut"]
 [ext_resource type="FontFile" uid="uid://bkd268sfppacl" path="res://src/fonts/NewRocker-Regular.ttf" id="2_7infx"]
+[ext_resource type="AudioStream" uid="uid://c55fhtmxuru2p" path="res://src/sounds/freesound_community-fh_paper_swipe_surface2_short_01wav-14432.mp3" id="3_3d32y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eq7tb"]
 bg_color = Color(1, 1, 1, 1)
@@ -109,3 +110,8 @@ text = "data"
 label_settings = SubResource("LabelSettings_ag2cp")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=540139322]
+stream = ExtResource("3_3d32y")
+volume_db = -5.0
+parameters/looping = true

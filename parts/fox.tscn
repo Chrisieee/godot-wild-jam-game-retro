@@ -1,15 +1,14 @@
 [gd_scene format=3 uid="uid://15b7ds0qxnib"]
 
 [ext_resource type="Script" uid="uid://6jr7qs8mhr22" path="res://scripts/score/photoObject.gd" id="1_kfylc"]
-[ext_resource type="PackedScene" uid="uid://dcllljrfayij4" path="res://src/objects/fox.glb" id="1_wb0je"]
 [ext_resource type="AudioStream" uid="uid://i5fbn72qpfdy" path="res://src/sounds/freesound_community-fox_noise-79659.mp3" id="3_5el67"]
 [ext_resource type="Script" uid="uid://cnrqg7tiska68" path="res://scripts/sounds/animalSounds.gd" id="4_m7dhx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wb0je"]
-size = Vector3(1.0822754, 2.0214233, 0.93463135)
+size = Vector3(3.664154, 6.8243256, 3.008316)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lfxu0"]
-size = Vector3(1.11969, 0.5360718, 0.774353)
+size = Vector3(3.7570953, 1.7934265, 3.0602875)
 
 [node name="fox" type="StaticBody3D" unique_id=1701980840]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
@@ -17,39 +16,36 @@ script = ExtResource("1_kfylc")
 objectName = "fox"
 points = 300
 
-[node name="fox" parent="." unique_id=184042266 instance=ExtResource("1_wb0je")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 1)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=946168693]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052124023, 1.0104259, 0.7933707)
+transform = Transform3D(0.999999, -0.0014292123, 0, 0.0014292123, 0.999999, 0, 0, 0, 1, -0.19895919, 3.411673, 0.3551307)
 shape = SubResource("BoxShape3D_wb0je")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=974968510]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3045349, 0.26797485, -0.05819702)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9711686, 0.8966523, -2.3219986)
 shape = SubResource("BoxShape3D_lfxu0")
 
 [node name="photoPoints" type="Node3D" parent="." unique_id=169319800]
 
 [node name="bottom" type="Marker3D" parent="photoPoints" unique_id=2039356341]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05129817, 0, 0.8420873)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17418365, 0, 0.84208727)
 
 [node name="top" type="Marker3D" parent="photoPoints" unique_id=1854531427]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05129817, 1.8126874, 0.8420873)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05129817, 6.0656843, 0.84208727)
 
 [node name="top-r" type="Marker3D" parent="photoPoints" unique_id=955822783]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.580923, 1.379316, 0.8420872)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8370377, 4.6816893, 0.8420872)
 
 [node name="top-l" type="Marker3D" parent="photoPoints" unique_id=147743836]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43958706, 1.3793159, 0.8420872)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3335634, 4.7429233, 0.8420872)
 
 [node name="center-r" type="Marker3D" parent="photoPoints" unique_id=443474569]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4071517, 0.831197, 0.8420872)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3140961, 2.3422518, 0.8420872)
 
 [node name="center-l" type="Marker3D" parent="photoPoints" unique_id=1574353934]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26296845, 0.831197, 0.8420872)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77552533, 2.3193047, 0.8420872)
 
 [node name="tail" type="Marker3D" parent="photoPoints" unique_id=16879475]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53799933, 0.51202554, -0.23560101)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5043712, 1.8510411, -2.9437947)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=735541563]
 transform = Transform3D(0.9090909, 0, 0, 0, 0.9090909, 0, 0, 0, 0.9090909, 0, 1.3703, 0.9425705)

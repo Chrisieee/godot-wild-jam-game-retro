@@ -30,7 +30,6 @@ var activeDistance := 40.0
 func _ready():
 	$Timer.timeout.connect(_on_timer_timeout)
 	
-	#rng.seed = 12345
 	var treeMultiMesh := MultiMesh.new()
 	treeMultiMesh.transform_format = MultiMesh.TRANSFORM_3D
 	treeMultiMesh.mesh = treeMesh
@@ -66,13 +65,13 @@ func _generate():
 
 		if _is_valid_bush_position(pos):
 			var data = SpawnData.new()
-			var rotation = rng.randf() * TAU
-			var scale = rng.randf_range(0.7, 1.3)
+			var rotation1 = rng.randf() * TAU
+			var scale1 = rng.randf_range(0.7, 1.3)
 
-			var basis := Basis()
-			basis = basis.rotated(Vector3.UP, rotation)
-			basis = basis.scaled(Vector3.ONE * scale)
-			data.transform = Transform3D(basis, pos)
+			var basis1 := Basis()
+			basis1 = basis.rotated(Vector3.UP, rotation1)
+			basis1 = basis.scaled(Vector3.ONE * scale1)
+			data.transform = Transform3D(basis1, pos)
 
 			bushes.append(data)
 			bushPositions.append(pos)

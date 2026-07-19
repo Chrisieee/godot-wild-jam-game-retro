@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://djih25ql3o2l6" path="res://src/pictures/Logo.png" id="2_y16t7"]
 [ext_resource type="Script" uid="uid://dndl48dl5u0eh" path="res://scripts/startButton.gd" id="3_bodal"]
 [ext_resource type="Script" uid="uid://bsy4smlmmiarp" path="res://scripts/quitButton.gd" id="4_kdmts"]
+[ext_resource type="AudioStream" uid="uid://cau8bwr3o70xt" path="res://src/sounds/attic13-melody-ambient-handpan-arpeggio-dmin-128bpm-227401.mp3" id="8_8itgj"]
 
 [sub_resource type="Environment" id="Environment_bodal"]
 
@@ -184,3 +185,9 @@ theme_override_fonts/font = ExtResource("2_u80x2")
 theme_override_font_sizes/font_size = 25
 text = "Quit"
 script = ExtResource("4_kdmts")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=6150115]
+stream = ExtResource("8_8itgj")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true

@@ -19,6 +19,9 @@ func play_ambient():
 	ambientPlayer.stream = preload("res://src/sounds/audiopapkin-forest-ambience-296528.mp3")
 	ambientPlayer.play()
 
+func stop_ambient():
+	ambientPlayer.stop()
+
 func play_sound(stream: AudioStream, db: int):
 	var player = AudioStreamPlayer.new()
 	player.volume_db = db

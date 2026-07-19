@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bkd268sfppacl" path="res://src/fonts/NewRocker-Regular.ttf" id="2_nj43b"]
 [ext_resource type="Script" uid="uid://dndl48dl5u0eh" path="res://scripts/startButton.gd" id="3_dyglm"]
 [ext_resource type="LabelSettings" uid="uid://b2obbwu5y7m3e" path="res://src/settings/labelSettings.tres" id="3_n3408"]
+[ext_resource type="AudioStream" uid="uid://cau8bwr3o70xt" path="res://src/sounds/attic13-melody-ambient-handpan-arpeggio-dmin-128bpm-227401.mp3" id="7_jdp01"]
 
 [sub_resource type="Environment" id="Environment_n3408"]
 
@@ -182,3 +183,9 @@ theme_override_fonts/font = ExtResource("2_nj43b")
 theme_override_font_sizes/font_size = 40
 text = "Start anyways?"
 script = ExtResource("3_dyglm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=406028473]
+stream = ExtResource("7_jdp01")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true

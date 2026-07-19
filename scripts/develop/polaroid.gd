@@ -3,6 +3,7 @@ extends Panel
 @onready var scoreLabel = $polScoreLabel
 @onready var mask = $MarginContainer/Overlay
 @onready var scoreView = $"../../.."
+@onready var scratchSound = $AudioStreamPlayer
 
 var startPosition: Vector2
 var endPosition
@@ -12,25 +13,38 @@ var lastMouse = Vector2.ZERO
 
 var callingNext = false
 var photoId = 0
+var scratch_timer := 0.0
 
 func _ready():
+	scratchSound.play()
+	print("Playing:", scratchSound.playing)
 	startPosition = position
 	endPosition = Vector2(-400, 800)
 
 func _process(delta):
 	var mouse = get_viewport().get_mouse_position()
+	var movement = mouse.distance_to(lastMouse)
 
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		progress += mouse.distance_to(lastMouse) * 0.0005
-		progress = clamp(progress, 0.0, 1.0)
+		if movement > 0:
+			scratch_timer = 0.1
 
-		mask.modulate.a = lerp(1.0, 0.0, progress)
+			if !scratchSound.playing:
+				scratchSound.play()
 
-	if progress == 1 && not callingNext:
-		callingNext = true
-		show_score()
+			progress += movement * 0.0001
+			progress = clamp(progress, 0.0, 1.0)
+			mask.modulate.a = lerp(1.0, 0.0, progress)
 
-	lastMouse = mouse
+	scratch_timer -= delta
+
+	if scratch_timer <= 0 and scratchSound.playing:
+		scratchSound.stop()
+	
+	if progress == 1 && not callingNext: 
+		callingNext = true 
+		show_score() 
+		lastMouse = mouse
 
 func show_score():
 	scoreLabel.visible = true

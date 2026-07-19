@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bqr53rtoity2p" path="res://scripts/scene/animalSpawner.gd" id="1_v0omt"]
 [ext_resource type="PackedScene" uid="uid://15b7ds0qxnib" path="res://parts/fox.tscn" id="2_5vs2m"]
+[ext_resource type="ArrayMesh" uid="uid://g8p5cp0wsblf" path="res://src/settings/foxMesh.tres" id="3_ff1ag"]
 [ext_resource type="PackedScene" uid="uid://bwr4d2cy5nkww" path="res://parts/bird.tscn" id="3_whvu0"]
 [ext_resource type="Material" uid="uid://colqgy8fx7qpr" path="res://src/textures/floor.tres" id="3_xejcy"]
+[ext_resource type="ArrayMesh" uid="uid://b22ehc4v5r154" path="res://src/settings/birdMesh.tres" id="4_4ic0d"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lfxu0"]
 material = ExtResource("3_xejcy")
@@ -12,10 +14,20 @@ size = Vector2(150, 150)
 [node name="animalSpawner" type="Node3D" unique_id=718169120]
 script = ExtResource("1_v0omt")
 foxScene = ExtResource("2_5vs2m")
+foxMesh = ExtResource("3_ff1ag")
 foxAmount = 2
 birdScene = ExtResource("3_whvu0")
-
-[node name="animals" type="Node3D" parent="." unique_id=2116981683]
+birdMesh = ExtResource("4_4ic0d")
 
 [node name="spawnArea" type="MeshInstance3D" parent="." unique_id=2138012494]
 mesh = SubResource("PlaneMesh_lfxu0")
+
+[node name="foxMultiMesh" type="MultiMeshInstance3D" parent="." unique_id=2081725548]
+
+[node name="birdMultiMesh" type="MultiMeshInstance3D" parent="." unique_id=479370170]
+
+[node name="activeAnimals" type="Node3D" parent="." unique_id=2116981683]
+
+[node name="Timer" type="Timer" parent="." unique_id=947187992]
+wait_time = 0.2
+autostart = true

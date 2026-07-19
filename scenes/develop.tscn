@@ -12,6 +12,7 @@
 [ext_resource type="LabelSettings" uid="uid://b2obbwu5y7m3e" path="res://src/settings/labelSettings.tres" id="8_2kiuj"]
 [ext_resource type="Script" uid="uid://qxu1uu8xoao7" path="res://scripts/doneButton.gd" id="8_5o8f0"]
 [ext_resource type="Script" uid="uid://dndl48dl5u0eh" path="res://scripts/startButton.gd" id="9_cuy7h"]
+[ext_resource type="AudioStream" uid="uid://cau8bwr3o70xt" path="res://src/sounds/attic13-melody-ambient-handpan-arpeggio-dmin-128bpm-227401.mp3" id="13_pngqg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjb8m"]
 bg_color = Color(0.4759596, 0.35143566, 0.26927388, 1)
@@ -38,7 +39,7 @@ offset_bottom = 441.0
 theme_override_styles/panel = ExtResource("2_hvqrq")
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1623039933]
-offset_left = 1.0
+offset_left = -3.0
 offset_top = 279.0
 offset_right = 1285.0
 offset_bottom = 722.0
@@ -176,7 +177,6 @@ horizontal_alignment = 1
 [node name="Label2" type="Label" parent="CanvasLayer/donePopup/MarginContainer/VBoxContainer" unique_id=447683550]
 layout_mode = 2
 size_flags_vertical = 6
-text = "Average score: 0"
 label_settings = ExtResource("8_2kiuj")
 horizontal_alignment = 1
 
@@ -201,3 +201,9 @@ text = "Click and drag your mouse over the picture to develop it."
 label_settings = SubResource("LabelSettings_lfxu0")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2120809206]
+stream = ExtResource("13_pngqg")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true

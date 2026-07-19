@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bwr4d2cy5nkww"]
 
 [ext_resource type="Script" uid="uid://6jr7qs8mhr22" path="res://scripts/score/photoObject.gd" id="1_1k3dd"]
-[ext_resource type="PackedScene" uid="uid://dqquepn12hge3" path="res://src/objects/bird.glb" id="2_o58hr"]
 [ext_resource type="AudioStream" uid="uid://buqvdlb7s65ol" path="res://src/sounds/jia-mei-summer-bird-chipping-426107.mp3" id="3_lnwfl"]
 [ext_resource type="Script" uid="uid://cnrqg7tiska68" path="res://scripts/sounds/animalSounds.gd" id="4_h8m4e"]
+[ext_resource type="ArrayMesh" uid="uid://b22ehc4v5r154" path="res://src/settings/birdMesh.tres" id="4_lnwfl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lfxu0"]
-size = Vector3(0.4517241, 1.0621185, 1.6677341)
+size = Vector3(4.161167, 6.771223, 8.321352)
 
 [node name="bird" type="StaticBody3D" unique_id=581902312]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.97658396)
@@ -14,29 +14,30 @@ script = ExtResource("1_1k3dd")
 objectName = "bird"
 points = 100
 
-[node name="bird" parent="." unique_id=1934613589 instance=ExtResource("2_o58hr")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.0029600859, 0, 1.3155524)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=681687844]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006288737, 0.5246506, 1.2747793)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030056506, 3.3792028, 1.1029358)
 shape = SubResource("BoxShape3D_lfxu0")
 
 [node name="photoPoints" type="Node3D" parent="." unique_id=110687267]
 
 [node name="top-r" type="Marker3D" parent="photoPoints" unique_id=217946241]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11596385, 0.9167228, 0.92665994)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0907509, 5.634938, -1.7415137)
 
 [node name="top-l" type="Marker3D" parent="photoPoints" unique_id=1284466607]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12093354, 0.9167228, 0.92665994)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1257243, 5.62882, -1.4684062)
 
 [node name="center-r" type="Marker3D" parent="photoPoints" unique_id=638813542]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21634224, 0.5062495, 1.2745543)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.060628, 2.5490878, 0.22048056)
 
 [node name="center-l" type="Marker3D" parent="photoPoints" unique_id=1038996771]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21720642, 0.5062495, 1.2745543)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0387478, 2.35994, 1.2745543)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=129676841]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51557577, 1.248106)
 stream = ExtResource("3_lnwfl")
 max_distance = 40.0
 script = ExtResource("4_h8m4e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2055800284]
+visible = false
+mesh = ExtResource("4_lnwfl")
