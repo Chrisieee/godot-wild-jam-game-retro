@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://cym3gik53i0ga"]
+
+[ext_resource type="FontFile" uid="uid://bkd268sfppacl" path="res://src/fonts/NewRocker-Regular.ttf" id="1_4bmv6"]
+
+[resource]
+font = ExtResource("1_4bmv6")
+font_size = 20

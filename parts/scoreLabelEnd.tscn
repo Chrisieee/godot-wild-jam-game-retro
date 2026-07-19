@@ -4,11 +4,11 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_5w07v"]
 font = ExtResource("1_fd33i")
-font_size = 30
+font_size = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_3oj3p"]
 font = ExtResource("1_fd33i")
-font_size = 30
+font_size = 25
 
 [node name="scoreLabelEnd" type="HBoxContainer" unique_id=1631263832]
 anchors_preset = 15

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d23gojmb5nmll"]
 
 [ext_resource type="PackedScene" uid="uid://cmvweot2qii82" path="res://src/objects/camera.glb" id="1_7lmop"]
+[ext_resource type="StyleBox" uid="uid://unf5klg0vkqr" path="res://src/settings/bgSettings.tres" id="1_n3408"]
 [ext_resource type="Texture2D" uid="uid://cjit5b0gwl4v0" path="res://src/pictures/cat.jpg" id="2_dyglm"]
 [ext_resource type="FontFile" uid="uid://bkd268sfppacl" path="res://src/fonts/NewRocker-Regular.ttf" id="2_nj43b"]
 [ext_resource type="Script" uid="uid://dndl48dl5u0eh" path="res://scripts/startButton.gd" id="3_dyglm"]
@@ -27,7 +28,25 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dyglm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="quit" type="Node2D" unique_id=1907712146]
+
+[node name="Panel2" type="Panel" parent="." unique_id=1012326903]
+offset_top = -2.0
+offset_right = 1284.0
+offset_bottom = 720.0
+theme_override_styles/panel = ExtResource("1_n3408")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=425066360]
 modulate = Color(1, 1, 1, 0.83137256)
@@ -127,6 +146,16 @@ grow_vertical = 2
 texture = ExtResource("2_dyglm")
 expand_mode = 2
 stretch_mode = 6
+
+[node name="Panel" type="Panel" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/Panel" unique_id=2047160736]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_dyglm")
 
 [node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=862024458]
 layout_mode = 2

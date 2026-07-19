@@ -14,6 +14,8 @@ var remainingPhotos
 var photosMade = []
 
 func _ready():
+	$"../../CanvasLayer/cameraUi/noPhotoLabel".visible = false
+	viewfinder.visible = false
 	remainingPhotos = photos
 	label.text = str(remainingPhotos)
 
@@ -21,17 +23,22 @@ func _process(_delta):
 	photoCamera.global_transform = playerCamera.global_transform
 
 func raise_camera():
+	AudioManager.play_sound(preload("res://src/sounds/pickingup.mp3"), 0)
+	$"../../../CanvasLayer/controlsView".visible = false
 	viewfinder.visible = true
 	cameraUp = true
 	cameraModel.visible = false
 
 func lower_camera():
+	AudioManager.play_sound(preload("res://src/sounds/Puttingdown.mp3"), -15)
+	$"../../../CanvasLayer/controlsView".visible = true
 	viewfinder.visible = false
 	cameraUp = false
 	cameraModel.visible = true
 
 func make_photo():
 	if remainingPhotos > 0:
+		AudioManager.play_sound(preload("res://src/sounds/irinairinafomicheva-camera-13695.mp3"), -5)
 		var photo := PhotoData.new()
 	
 		photo.image = $"../SubViewport".get_texture().get_image()
@@ -53,3 +60,4 @@ func make_photo():
 		polaroidPhoto.show_photo(photo)
 	else:
 		print("No more pictures")
+		$"../../CanvasLayer/cameraUi/noPhotoLabel".visible = true

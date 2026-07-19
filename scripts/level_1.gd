@@ -2,6 +2,7 @@ extends Node3D
 
 func _ready():
 	GameManager.map = "forest"
+	AudioManager.play_ambient()
 
 func _input(event):
 	if event.is_action_pressed("develop"):

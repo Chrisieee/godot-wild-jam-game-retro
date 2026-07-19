@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://6jr7qs8mhr22" path="res://scripts/score/photoObject.gd" id="1_kfylc"]
 [ext_resource type="PackedScene" uid="uid://dcllljrfayij4" path="res://src/objects/fox.glb" id="1_wb0je"]
+[ext_resource type="AudioStream" uid="uid://i5fbn72qpfdy" path="res://src/sounds/freesound_community-fox_noise-79659.mp3" id="3_5el67"]
+[ext_resource type="Script" uid="uid://cnrqg7tiska68" path="res://scripts/sounds/animalSounds.gd" id="4_m7dhx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wb0je"]
 size = Vector3(1.0822754, 2.0214233, 0.93463135)
@@ -34,8 +36,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05129817, 0, 0.8420873)
 [node name="top" type="Marker3D" parent="photoPoints" unique_id=1854531427]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05129817, 1.8126874, 0.8420873)
 
-[node name="center" type="Marker3D" parent="photoPoints" unique_id=443474569]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05129817, 0.831197, 0.8420873)
+[node name="top-r" type="Marker3D" parent="photoPoints" unique_id=955822783]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.580923, 1.379316, 0.8420872)
+
+[node name="top-l" type="Marker3D" parent="photoPoints" unique_id=147743836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43958706, 1.3793159, 0.8420872)
+
+[node name="center-r" type="Marker3D" parent="photoPoints" unique_id=443474569]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4071517, 0.831197, 0.8420872)
+
+[node name="center-l" type="Marker3D" parent="photoPoints" unique_id=1574353934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26296845, 0.831197, 0.8420872)
 
 [node name="tail" type="Marker3D" parent="photoPoints" unique_id=16879475]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5379994, 0.14471567, -0.23560101)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53799933, 0.51202554, -0.23560101)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=735541563]
+transform = Transform3D(0.9090909, 0, 0, 0, 0.9090909, 0, 0, 0, 0.9090909, 0, 1.3703, 0.9425705)
+stream = ExtResource("3_5el67")
+volume_db = 10.0
+autoplay = true
+max_distance = 40.0
+script = ExtResource("4_m7dhx")

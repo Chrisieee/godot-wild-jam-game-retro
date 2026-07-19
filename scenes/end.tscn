@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://d3g33vuj2ophp"]
 
+[ext_resource type="StyleBox" uid="uid://unf5klg0vkqr" path="res://src/settings/bgSettings.tres" id="1_8hmjt"]
 [ext_resource type="PackedScene" uid="uid://cmvweot2qii82" path="res://src/objects/camera.glb" id="1_p7m4f"]
+[ext_resource type="Texture2D" uid="uid://djih25ql3o2l6" path="res://src/pictures/Logo.png" id="2_8hmjt"]
 [ext_resource type="FontFile" uid="uid://bkd268sfppacl" path="res://src/fonts/NewRocker-Regular.ttf" id="2_bvfni"]
 [ext_resource type="LabelSettings" uid="uid://b2obbwu5y7m3e" path="res://src/settings/labelSettings.tres" id="2_s4tl2"]
 [ext_resource type="Script" uid="uid://dndl48dl5u0eh" path="res://scripts/startButton.gd" id="3_s4tl2"]
@@ -27,6 +29,12 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [node name="end" type="Node2D" unique_id=1888523759]
+
+[node name="Panel2" type="Panel" parent="." unique_id=725973627]
+offset_top = -2.0
+offset_right = 1284.0
+offset_bottom = 720.0
+theme_override_styles/panel = ExtResource("1_8hmjt")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=908952424]
 modulate = Color(1, 1, 1, 0.83137256)
@@ -111,10 +119,30 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Panel" type="Panel" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=793159043]
+[node name="Panel" type="Panel" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=288252130]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_ee763")
+
+[node name="Panel" type="Panel" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/Panel" unique_id=1523938703]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ee763")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/Panel" unique_id=2128109187]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8hmjt")
+expand_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1147490477]
 layout_mode = 2

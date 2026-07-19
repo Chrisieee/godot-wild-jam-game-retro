@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://q3a2ads4fday"]
 
 [ext_resource type="Script" uid="uid://qh30ippddc81" path="res://scripts/develop/developManager.gd" id="1_ptjpa"]
+[ext_resource type="StyleBox" uid="uid://unf5klg0vkqr" path="res://src/settings/bgSettings.tres" id="2_hvqrq"]
 [ext_resource type="Script" uid="uid://dx85gkdkjf867" path="res://scripts/score/scoreView.gd" id="3_5yyuv"]
 [ext_resource type="PackedScene" uid="uid://ckjm0n2nq6wvt" path="res://parts/polaroid.tscn" id="3_ag2cp"]
 [ext_resource type="PackedScene" uid="uid://cmvweot2qii82" path="res://src/objects/camera.glb" id="3_ptjpa"]
@@ -20,10 +21,21 @@ bg_color = Color(0.4759596, 0.35143566, 0.26927388, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvqrq"]
 bg_color = Color(1, 1, 1, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_lfxu0"]
+font = ExtResource("5_qne1y")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
 [node name="develop" type="Node2D" unique_id=30682998]
 script = ExtResource("1_ptjpa")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1949002746]
+
+[node name="Panel2" type="Panel" parent="CanvasLayer" unique_id=2021224776]
+offset_top = -2.0
+offset_right = 1284.0
+offset_bottom = 441.0
+theme_override_styles/panel = ExtResource("2_hvqrq")
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1623039933]
 offset_left = 1.0
@@ -181,3 +193,11 @@ theme_override_fonts/font = ExtResource("5_qne1y")
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 script = ExtResource("8_5o8f0")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=233788742]
+offset_right = 1282.0
+offset_bottom = 83.0
+text = "Click and drag your mouse over the picture to develop it."
+label_settings = SubResource("LabelSettings_lfxu0")
+horizontal_alignment = 1
+vertical_alignment = 1

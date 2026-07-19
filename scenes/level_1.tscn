@@ -2,11 +2,25 @@
 
 [ext_resource type="PackedScene" uid="uid://cuhwyk0a0leyk" path="res://parts/player.tscn" id="1_014kd"]
 [ext_resource type="Script" uid="uid://buyotnwu7bihr" path="res://scripts/level_1.gd" id="1_bswci"]
+[ext_resource type="Material" uid="uid://colqgy8fx7qpr" path="res://src/textures/floor.tres" id="2_pa8r4"]
 [ext_resource type="PackedScene" uid="uid://bwv6k2rl3nntg" path="res://parts/forest.tscn" id="3_rus8k"]
 [ext_resource type="PackedScene" uid="uid://4j2jcv1a164f" path="res://parts/animal_spawner.tscn" id="4_5xbjy"]
-[ext_resource type="PackedScene" uid="uid://bwr4d2cy5nkww" path="res://parts/bird.tscn" id="5_4nkto"]
+[ext_resource type="Script" uid="uid://kwx0rtcas0np" path="res://scripts/ui.gd" id="6_15mv3"]
+[ext_resource type="LabelSettings" uid="uid://cym3gik53i0ga" path="res://src/settings/controlsLabelSettings.tres" id="6_fcfvj"]
+[ext_resource type="FontFile" uid="uid://bkd268sfppacl" path="res://src/fonts/NewRocker-Regular.ttf" id="6_pa8r4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2y5yt"]
+sky_top_color = Color(0.37130424, 0.6171544, 0.9999984, 1)
+sky_horizon_color = Color(0.19019392, 0.38691756, 0.19484568, 1)
+ground_bottom_color = Color(0.11093109, 0.19992444, 0.11128054, 1)
+ground_horizon_color = Color(0.1882353, 0.3882353, 0.19607843, 1)
+
+[sub_resource type="Sky" id="Sky_e3sih"]
+sky_material = SubResource("ProceduralSkyMaterial_2y5yt")
 
 [sub_resource type="Environment" id="Environment_014kd"]
+background_mode = 2
+sky = SubResource("Sky_e3sih")
 ambient_light_energy = 1.22
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_r6c0r"]
@@ -17,6 +31,10 @@ size = Vector3(201.42773, 1, 202.4668)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hjb8m"]
 size = Vector3(201.60718, 33.693848, 2.2500117)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lfxu0"]
+font = ExtResource("6_pa8r4")
+font_size = 25
 
 [node name="level1" type="Node3D" unique_id=734127826]
 script = ExtResource("1_bswci")
@@ -36,6 +54,7 @@ environment = SubResource("Environment_014kd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=1076422641]
 mesh = SubResource("PlaneMesh_r6c0r")
+surface_material_override/0 = ExtResource("2_pa8r4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor" unique_id=2116035872]
 transform = Transform3D(1, 0, 0, 0, 0.9999827, 0.005878221, 0, -0.005878221, 0.9999827, -0.33622742, -4.3049455e-05, 0.48120117)
@@ -51,230 +70,326 @@ transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0, 0, 0)
 
 [node name="forestSpawner" parent="trees/dense" unique_id=474062151 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.979324, 0, 75.14326)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner2" parent="trees/dense" unique_id=1796509021 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.979324, 0, 25.142097)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner3" parent="trees/dense" unique_id=527302777 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.979324, 0, -24.681084)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner4" parent="trees/dense" unique_id=895442603 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.979324, 0, -74.62487)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner5" parent="trees/dense" unique_id=1436032308 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.8929, 0, 74.71736)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner6" parent="trees/dense" unique_id=1860906386 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.8929, 0, 24.716202)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner7" parent="trees/dense" unique_id=806611592 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.8929, 0, -25.10698)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner8" parent="trees/dense" unique_id=572220036 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.8929, 0, -75.050766)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner9" parent="trees/dense" unique_id=1799096726 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.84851, 0, 74.66807)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner10" parent="trees/dense" unique_id=1999403361 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.976315, 0, 74.63082)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner11" parent="trees/dense" unique_id=1815108880 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.84851, 0, -74.74386)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner12" parent="trees/dense" unique_id=100057083 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.767029, 0, -74.74386)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner13" parent="trees/dense" unique_id=1221090566 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.979324, 0, 50.145676)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner14" parent="trees/dense" unique_id=669603988 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.979324, 0, 0.30090714)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner15" parent="trees/dense" unique_id=1177990066 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.979324, 0, -49.668198)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner16" parent="trees/dense" unique_id=1178115781 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.908905, 0, -74.62487)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner17" parent="trees/dense" unique_id=398205549 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20130157, 0, -74.62487)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner18" parent="trees/dense" unique_id=794374438 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.7921, 0, -74.84747)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner19" parent="trees/dense" unique_id=106658675 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.8929, 0, -49.967182)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner20" parent="trees/dense" unique_id=1795335673 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.8929, 0, -0.33377075)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner21" parent="trees/dense" unique_id=1681827954 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.8929, 0, 49.79188)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner22" parent="trees/dense" unique_id=1524541493 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.872223, 0, 74.74319)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner23" parent="trees/dense" unique_id=759508023 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.062210083, 0, 74.71736)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner24" parent="trees/dense" unique_id=5850174 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.918953, 0, 74.71736)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner25" parent="trees/dense" unique_id=1377459336 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.7921, 0, -49.96444)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner26" parent="trees/dense" unique_id=539480531 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.7921, 0, 49.704002)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner27" parent="trees/dense" unique_id=1815941379 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.95501, 0, 49.704002)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="forestSpawner28" parent="trees/dense" unique_id=1153806954 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.979095, 0, -49.96444)
-amount = 100
+amount = 20
+bushAmount = 5
 minDistance = 8.0
+bushMinDistance = 5.0
 
 [node name="light" type="StaticBody3D" parent="trees" unique_id=131591669]
 
 [node name="forestSpawner13" parent="trees/light" unique_id=218316051 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.93784, 0, -24.901012)
-amount = 10
+amount = 8
+bushAmount = 3
+bushMinDistance = 5.0
 
 [node name="forestSpawner14" parent="trees/light" unique_id=1299811033 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.909378, 0, -49.74077)
-amount = 10
+amount = 8
+bushAmount = 3
+bushMinDistance = 5.0
 
 [node name="forestSpawner15" parent="trees/light" unique_id=258193146 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05010605, 0, -49.74077)
-amount = 10
+amount = 8
+bushAmount = 3
+bushMinDistance = 5.0
 
 [node name="forestSpawner16" parent="trees/light" unique_id=502276670 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.978355, 0, -49.74077)
-amount = 10
+amount = 8
+bushAmount = 3
+bushMinDistance = 5.0
 
 [node name="forestSpawner17" parent="trees/light" unique_id=946903654 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.93784, 0, 0.17115402)
-amount = 10
+amount = 8
+bushAmount = 3
+bushMinDistance = 5.0
 
 [node name="forestSpawner18" parent="trees/light" unique_id=382538755 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.93784, 0, 24.87281)
-amount = 10
+amount = 8
+bushAmount = 3
+bushMinDistance = 5.0
 
 [node name="forestSpawner19" parent="trees/light" unique_id=681999247 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.150265, 0, -24.901012)
-amount = 10
+amount = 8
+bushAmount = 3
+bushMinDistance = 5.0
 
 [node name="forestSpawner20" parent="trees/light" unique_id=521789190 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.150265, 0, 0.17115402)
-amount = 10
+amount = 8
+bushAmount = 3
+bushMinDistance = 5.0
 
 [node name="forestSpawner21" parent="trees/light" unique_id=140718228 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.150265, 0, 24.87281)
-amount = 10
+amount = 8
+bushAmount = 3
+bushMinDistance = 5.0
 
 [node name="forestSpawner22" parent="trees/light" unique_id=1579927488 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.909378, 0, 49.83667)
-amount = 10
+amount = 8
+bushAmount = 3
+bushMinDistance = 5.0
 
 [node name="forestSpawner23" parent="trees/light" unique_id=1666115510 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05010605, 0, 49.83667)
-amount = 10
+amount = 8
+bushAmount = 3
+bushMinDistance = 5.0
 
 [node name="forestSpawner24" parent="trees/light" unique_id=20041544 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.978355, 0, 49.83667)
-amount = 10
+amount = 8
+bushAmount = 3
+bushMinDistance = 5.0
 
 [node name="clean" type="StaticBody3D" parent="trees" unique_id=1321325452]
 
 [node name="forestSpawner14" parent="trees/clean" unique_id=1615373309 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.909378, 0, -25.038296)
-amount = 2
+amount = 3
+bushAmount = 2
+bushMinDistance = 5.0
 
 [node name="forestSpawner15" parent="trees/clean" unique_id=81893327 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05010605, 0, -25.038296)
-amount = 2
+amount = 3
+bushAmount = 2
+bushMinDistance = 5.0
 
 [node name="forestSpawner16" parent="trees/clean" unique_id=1262803920 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.978355, 0, -25.038296)
-amount = 2
+amount = 3
+bushAmount = 2
+bushMinDistance = 5.0
 
 [node name="forestSpawner17" parent="trees/clean" unique_id=1797000153 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.909378, 0, 24.799122)
-amount = 2
+amount = 3
+bushAmount = 2
+bushMinDistance = 5.0
 
 [node name="forestSpawner18" parent="trees/clean" unique_id=253719061 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05010605, 0, 24.799122)
-amount = 2
+amount = 3
+bushAmount = 2
+bushMinDistance = 5.0
 
 [node name="forestSpawner19" parent="trees/clean" unique_id=223109224 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.978355, 0, 24.799122)
-amount = 2
+amount = 3
+bushAmount = 2
+bushMinDistance = 5.0
 
 [node name="forestSpawner20" parent="trees/clean" unique_id=548122915 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.909378, 0, -0.050678253)
-amount = 2
+amount = 3
+bushAmount = 2
+bushMinDistance = 5.0
 
 [node name="forestSpawner21" parent="trees/clean" unique_id=1248346142 instance=ExtResource("3_rus8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.978355, 0, -0.10903549)
-amount = 2
+amount = 3
+bushAmount = 2
+bushMinDistance = 5.0
 
 [node name="animalSpawner" parent="." unique_id=718169120 instance=ExtResource("4_5xbjy")]
-birdScene = ExtResource("5_4nkto")
+minDistance = 10.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=856194237]
 
@@ -293,3 +408,180 @@ shape = SubResource("BoxShape3D_hjb8m")
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=769900764]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 101.86292, 16.346924, -0.27031708)
 shape = SubResource("BoxShape3D_hjb8m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1227591108]
+script = ExtResource("6_15mv3")
+
+[node name="controlsView" type="Panel" parent="CanvasLayer" unique_id=1639540079]
+offset_left = -2.0
+offset_top = 470.0
+offset_right = 264.0
+offset_bottom = 720.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/controlsView" unique_id=1174654417]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/controlsView/MarginContainer" unique_id=898610435]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer" unique_id=929625962]
+layout_mode = 2
+text = "Controls:"
+label_settings = SubResource("LabelSettings_lfxu0")
+horizontal_alignment = 1
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer" unique_id=225194015]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer/HBoxContainer7" unique_id=845472628]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hide controls:"
+label_settings = ExtResource("6_fcfvj")
+
+[node name="Label2" type="Label" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer/HBoxContainer7" unique_id=1139903213]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "C"
+label_settings = ExtResource("6_fcfvj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer" unique_id=1767723447]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1742302580]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Move:"
+label_settings = ExtResource("6_fcfvj")
+
+[node name="Label2" type="Label" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer/HBoxContainer" unique_id=372644236]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "WASD"
+label_settings = ExtResource("6_fcfvj")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer" unique_id=863625391]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1244772926]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Crouch:"
+label_settings = ExtResource("6_fcfvj")
+
+[node name="Label2" type="Label" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=842174120]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "CTRL"
+label_settings = ExtResource("6_fcfvj")
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer" unique_id=813962886]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=872832222]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sprint:"
+label_settings = ExtResource("6_fcfvj")
+
+[node name="Label2" type="Label" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1101444250]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "SHIFT"
+label_settings = ExtResource("6_fcfvj")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer" unique_id=1127117758]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=280208987]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Grab camera:"
+label_settings = ExtResource("6_fcfvj")
+
+[node name="Label2" type="Label" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1284501857]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Hold RMB"
+label_settings = ExtResource("6_fcfvj")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer" unique_id=462903665]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=656704489]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Make photo:"
+label_settings = ExtResource("6_fcfvj")
+
+[node name="Label2" type="Label" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=788900704]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "LMB"
+label_settings = ExtResource("6_fcfvj")
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer" unique_id=793545493]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=2130985236]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Develop photos:"
+label_settings = ExtResource("6_fcfvj")
+
+[node name="Label2" type="Label" parent="CanvasLayer/controlsView/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=1009297380]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "ENTER"
+label_settings = ExtResource("6_fcfvj")
+
+[node name="controlsView2" type="Panel" parent="CanvasLayer" unique_id=764606814]
+visible = false
+offset_left = -2.0
+offset_top = 686.0
+offset_right = 264.0
+offset_bottom = 720.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/controlsView2" unique_id=577160832]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/controlsView2/MarginContainer" unique_id=965313683]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/controlsView2/MarginContainer/HBoxContainer7" unique_id=752263689]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Show controls:"
+label_settings = ExtResource("6_fcfvj")
+
+[node name="Label2" type="Label" parent="CanvasLayer/controlsView2/MarginContainer/HBoxContainer7" unique_id=127986952]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "C"
+label_settings = ExtResource("6_fcfvj")

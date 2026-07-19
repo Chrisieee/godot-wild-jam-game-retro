@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://70tqgoch1lw1"]
+
+[ext_resource type="Script" uid="uid://6jr7qs8mhr22" path="res://scripts/score/photoObject.gd" id="1_mqd6w"]
+[ext_resource type="ArrayMesh" uid="uid://bae0mjakp2v08" path="res://src/settings/bushMesh.tres" id="2_jny3r"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lfxu0"]
+height = 1.6255035
+radius = 1.4643555
+
+[node name="bush" type="StaticBody3D" unique_id=1621484461]
+script = ExtResource("1_mqd6w")
+objectName = "bush"
+points = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=878338365]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.21395153, 0.8536453, 0.275074)
+shape = SubResource("CylinderShape3D_lfxu0")
+
+[node name="photoPoints" type="Node3D" parent="." unique_id=2007410396]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.010361195, 0, 0.6089891)
+
+[node name="top" type="Marker3D" parent="photoPoints" unique_id=1388081786]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46078223, 1.7799884, 1.21071935e-08)
+
+[node name="front" type="Marker3D" parent="photoPoints" unique_id=569380059]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5452182, 0.4648186, 1.21071935e-08)
+
+[node name="left" type="Marker3D" parent="photoPoints" unique_id=1003457852]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30383238, 0.63683426, 1.5344088)
+
+[node name="right" type="Marker3D" parent="photoPoints" unique_id=577409797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50944704, 0.50090206, -1.9378133)
+
+[node name="back" type="Marker3D" parent="photoPoints" unique_id=306696852]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.561962, 0.4648186, -0.17940508)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1641776257]
+visible = false
+mesh = ExtResource("2_jny3r")

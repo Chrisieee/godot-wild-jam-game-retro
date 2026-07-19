@@ -1,16 +1,32 @@
 [gd_scene format=3 uid="uid://bwv6k2rl3nntg"]
 
 [ext_resource type="Script" uid="uid://bj2qkerskdlk6" path="res://scripts/scene/treeSpawner.gd" id="1_47o5r"]
+[ext_resource type="ArrayMesh" uid="uid://bfmc7gy8fdx2k" path="res://src/settings/treeMesh.tres" id="2_8rpju"]
 [ext_resource type="PackedScene" uid="uid://dxshh2cg0x4ln" path="res://parts/tree1.tscn" id="2_fa7e7"]
+[ext_resource type="Material" uid="uid://colqgy8fx7qpr" path="res://src/textures/floor.tres" id="3_fa7e7"]
+[ext_resource type="ArrayMesh" uid="uid://bae0mjakp2v08" path="res://src/settings/bushMesh.tres" id="4_8rpju"]
+[ext_resource type="PackedScene" uid="uid://70tqgoch1lw1" path="res://parts/bush.tscn" id="5_8rpju"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lfxu0"]
 size = Vector2(25, 25)
 
 [node name="forestSpawner" type="Node3D" unique_id=474062151]
 script = ExtResource("1_47o5r")
+treeMesh = ExtResource("2_8rpju")
 treeScene = ExtResource("2_fa7e7")
-
-[node name="trees" type="Node3D" parent="." unique_id=485568382]
+bushMesh = ExtResource("4_8rpju")
+bushScene = ExtResource("5_8rpju")
 
 [node name="spawnArea" type="MeshInstance3D" parent="." unique_id=2034435584]
 mesh = SubResource("PlaneMesh_lfxu0")
+surface_material_override/0 = ExtResource("3_fa7e7")
+
+[node name="treeMultiMesh" type="MultiMeshInstance3D" parent="." unique_id=2109790743]
+
+[node name="bushMultiMesh" type="MultiMeshInstance3D" parent="." unique_id=138738840]
+
+[node name="activeObjects" type="Node3D" parent="." unique_id=1490124581]
+
+[node name="Timer" type="Timer" parent="." unique_id=387012245]
+wait_time = 0.2
+autostart = true
